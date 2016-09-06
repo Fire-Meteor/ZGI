@@ -8,8 +8,9 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-#ignore modules
+#ignore modules,idea
 node_modules/
+.idea/
 
 # Windows Installer files
 *.cab
