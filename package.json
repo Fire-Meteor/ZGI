@@ -11,7 +11,7 @@
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.5",
     "dotenv": "^2.0.0",
-	  "underscore": "^1.8.3"
+	"underscore": "^1.8.3"
   },
   "devDependencies": {
     "eslint": "^2.12.0",

@@ -4,10 +4,17 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content="Alvaro Trigo Lopez" />
+        <meta name="description" content="fullPage One single section." />
+        <meta name="keywords"  content="fullpage,One, Single, Section" />
+        <meta name="Resource-type" content="Document" />
 		<title>dryice</title>
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 		<link href="/styles/site.min.css" rel="stylesheet">
-
+		<link href="/styles/less/siteStyle.css" rel="stylesheet">
+        <!--<link href="/js/fullpageJS/jquery.fullPage.css" rel="stylesheet">-->
+		<!--<script src="/js/jquery/jquery-2.1.4.min.js" ></script>-->
+		<!--<script src="/js/fullpageJS/jquery.fullPage.js"></script>-->
 		{{!-- This file provides the default styling for the KeystoneJS Content Editor
 			- only renders when user is logged in and admin--}}
 		{{{isAdminEditorCSS user}}}
@@ -20,8 +27,13 @@
 		<![endif]-->
 
 	</head>
+	<script>
+		$(document).ready(function(){
+			$("#div_fullpage").fullpage();
+		})
+	</script>
 	<body>
-		<div id="header">
+		<div id="header" style="position: fixed; top: 0;display: none">
 			<div class="container">
 				<div role="navigation" class="navbar navbar-default">
 					<div class="container-fluid">
