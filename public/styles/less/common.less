@@ -1,15 +1,15 @@
 @import "color";
-/*@font-face {
-  font-family: "Heiti-SC-Light";
-  src: url("/fonts/Heiti/Heiti-SC-Light.eot"); !* IE9*!
-  src: url("/public/fonts/Heiti/Heiti-SC-Light.eot?#iefix") format("embedded-opentype"), !* IE6-IE8 *!
-  url("/public/fonts/Heiti/Heiti-SC-Light.woff2") format("woff2"), !* chrome、firefox *!
-  url("/public/fonts/Heiti/Heiti-SC-Light.woff") format("woff"), !* chrome、firefox *!
-  url("/public/fonts/Heiti/Heiti-SC-Light.ttf") format("truetype"), !* chrome、firefox、opera、Safari, Android, iOS 4.2+*!
-  url("/public/fonts/Heiti/Heiti-SC-Light.svg#Heiti-SC-Light") format("svg"); !* iOS 4.1- *!
-}
 
-@project_font:"Heiti-SC-Light";*/
+@font-face {
+  font-family: "Microsoft YaHei";
+  src: url("/fonts/Heiti/Microsoft YaHei.eot"); /* IE9*/
+  src: url("/fonts/Heiti/Microsoft YaHei.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+  url("/fonts/Heiti/Microsoft YaHei.woff2") format("woff2"), /* chrome、firefox */
+  url("/fonts/Heiti/Microsoft YaHei.woff") format("woff"), /* chrome、firefox */
+  url("/fonts/Heiti/Microsoft YaHei.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url("/fonts/Heiti/Microsoft YaHei.svg # Microsoft YaHei") format("svg"); /* iOS 4.1- */
+}
+@project_font:"Microsoft YaHei",Helvetica, Arial;
 
 html{
   font-size: 62.5%;
@@ -23,9 +23,13 @@ body{
 }
 
 *{
-  //font-family: Muli,'Helvetica Neue','Hiragino Sans GB','WenQuanYi Micro Hei','Microsoft Yahei',sans-serif;
-  //font-weight: 300;
+  font-family:@project_font;
   color: @black_32;
+}
+
+.h1,.h2,.h3,.h4,.h5,.h6,p{
+  margin:0;
+  padding: 0;
 }
 
 .h1{
