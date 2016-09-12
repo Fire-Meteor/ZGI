@@ -11,31 +11,31 @@ var handlebars = require('express-handlebars');
 // and documentation.
 
 keystone.init({
-    'name': 'dryice',
-    'brand': 'dryice',
+	'name': 'dryice',
+	'brand': 'dryice',
 
-    'less': 'public',
-    'static': 'public',
-    'favicon': 'public/favicon.ico',
-    'views': 'templates/views',
-    'view engine': 'hbs',
+	'less': 'public',
+	'static': 'public',
+	'favicon': 'public/favicon.ico',
+	'views': 'templates/views',
+	'view engine': 'hbs',
 
-    'custom engine': handlebars.create({
-        layoutsDir: 'templates/views/layouts',
-        partialsDir: 'templates/views/partials',
-        defaultLayout: 'default',
-        helpers: new require('./templates/views/helpers')(),
-        extname: '.hbs',
-    }).engine,
+	'custom engine': handlebars.create({
+		layoutsDir: 'templates/views/layouts',
+		partialsDir: 'templates/views/partials',
+		defaultLayout: 'default',
+		helpers: new require('./templates/views/helpers')(),
+		extname: '.hbs',
+	}).engine,
 
-    'emails': 'templates/emails',
+	'emails': 'templates/emails',
 
-    'auto update': true,
-    'session': true,
-    'auth': true,
-    'user model': 'User',
-    'wysiwyg images': true,
-    'wysiwyg cloudinary images': true,
+	'auto update': true,
+	'session': true,
+	'auth': true,
+	'user model': 'User',
+	'wysiwyg images': true,
+	'wysiwyg cloudinary images': true,
 });
 
 // Load your project's Models
@@ -45,10 +45,10 @@ keystone.import('models');
 // bundled templates and layouts. Any runtime locals (that should be set uniquely
 // for each request) should be added to ./routes/middleware.js
 keystone.set('locals', {
-    _: require('lodash'),
-    env: keystone.get('env'),
-    utils: keystone.utils,
-    editable: keystone.content.editable,
+	_: require('lodash'),
+	env: keystone.get('env'),
+	utils: keystone.utils,
+	editable: keystone.content.editable,
 });
 
 // Load your project's Routes
@@ -57,18 +57,18 @@ keystone.set('routes', require('./routes'));
 // Setup common locals for your emails. The following are required by Keystone's
 // default email templates, you may remove them if you're using your own.
 keystone.set('email locals', {
-    logo_src: '/images/logo-email.gif',
-    logo_width: 194,
-    logo_height: 76,
-    theme: {
-        email_bg: '#f9f9f9',
-        link_color: '#2697de',
-        buttons: {
-            color: '#fff',
-            background_color: '#2697de',
-            border_color: '#1a7cb7',
-        },
-    },
+	logo_src: '/images/logo-email.gif',
+	logo_width: 194,
+	logo_height: 76,
+	theme: {
+		email_bg: '#f9f9f9',
+		link_color: '#2697de',
+		buttons: {
+			color: '#fff',
+			background_color: '#2697de',
+			border_color: '#1a7cb7',
+		},
+	},
 });
 
 // Load your project's email test routes
@@ -82,11 +82,45 @@ keystone.Email.defaults.templateEngine = require('handlebars');
 
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
-    posts: ['posts', 'post-categories'],
-    galleries: 'galleries',
-    enquiries: 'enquiries',
-    users: 'users',
+	posts: ['posts', 'post-categories'],
+	galleries: 'galleries',
+	enquiries: 'enquiries',
+	users: 'users',
+	content: [{
+		label: "site navigation",
+		key: "site navigation",
+		path: "/admin/navigations_map"
+	}]
 });
+
+
+//
+// keystone.set('nav', [
+// 	{
+// 		label: 'Home',
+// 		key: 'home',
+// 		href: '/'
+// 	},
+// 	{
+// 		label: 'About',
+// 		key: 'about',
+// 		href: '/about'
+// 	}, 
+// 	{
+// 		label: 'Blog',
+// 		key: 'blog',
+// 		href: '/blog'
+// 	}, 
+// 	{
+// 		label: 'Gallery',
+// 		key: 'gallery',
+// 		href: '/gallery'
+// 	}, 
+// 	{
+// 		label: 'Contact',
+// 		key: 'contact',
+// 		href: '/contact'
+// 	}]);
 
 // Start Keystone to connect to your database and initialise the web server
 

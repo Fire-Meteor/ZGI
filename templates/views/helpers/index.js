@@ -325,6 +325,18 @@ module.exports = function () {
 	_helpers.underscoreFormat = function (obj, underscoreMethod) {
 		return obj._[underscoreMethod].format();
 	};
-
+	
+	
+	_helpers.menu=function (user,navLinks) {
+		//var tmp =  user.toString()+ navLinks.toString();
+		
+		//new hbs.template('./templates/views/partials/menu.hbs');
+		//new hbs.registerPartial('menu',  fs.readFileSync(__dirname + '/templates/views/partials/menu.hbs', 'utf8'));
+		//new hbs.registerPartial('menu', './templates/views/partials/menu.hbs');
+		
+		new hbs.template('./templates/views/partials/menu.hbs');
+		
+	}
+	
 	return _helpers;
 };
