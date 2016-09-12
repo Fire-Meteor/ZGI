@@ -13,7 +13,7 @@
 		<link href="/styles/site.min.css" rel="stylesheet">
 		<link href="/styles/less/siteStyle.css" rel="stylesheet">
         <!--<link href="/js/fullpageJS/jquery.fullPage.css" rel="stylesheet">-->
-		<!--<script src="/js/jquery/jquery-2.1.4.min.js" ></script>-->
+		<script src="/bower_components/jquery/dist/jquery.min.js" ></script>
 		<!--<script src="/js/fullpageJS/jquery.fullPage.js"></script>-->
 		{{!-- This file provides the default styling for the KeystoneJS Content Editor
 			- only renders when user is logged in and admin--}}
@@ -27,11 +27,7 @@
 		<![endif]-->
 
 	</head>
-	<script>
-		$(document).ready(function(){
-			$("#div_fullpage").fullpage();
-		})
-	</script>
+
 	<body>
 		<div id="header" style="position: fixed; top: 0;display: none">
 			<div class="container">
@@ -64,7 +60,7 @@
 				</div>
 			</div>
 		</div>
-		<div id="body">
+		<div id="body" style="height: 100%;">
 			<!--
 				Flash messages allow you to display once-off status messages to users, e.g. form
 				validation errors, success messages, etc
@@ -96,17 +92,20 @@
 			<!-- The content block should contain the body of your template's content-->
 			{{{body}}}
 		</div>
-		<div class="container">
-			<div id="footer">
-				<p>Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>
-			</div>
-		</div>
+		<!--<div class="container">-->
+			<!--<div id="footer">-->
+				<!--<p>Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>-->
+			<!--</div>-->
+		<!--</div>-->
+		<footer class="text-center">
+			<p>Copyright © 2016 上海振信气体有限公司</p>
+		</footer>
 		{{!--
 			//- jQuery 1.11.3 is included by default, and required by both Bootstrap
 			//- and the KeystoneJS Content Editor. If you are not targeting IE8,
 			//- you can upgrade to 2.1.4 (also bundled) for better performance.
 		--}}
-		<script src="/js/jquery/jquery-1.11.3.min.js"></script>
+		<!--<script src="/js/jquery/jquery-1.11.3.min.js"></script>-->
 		{{!--
 			//- Customise which Bootstrap javascript files are served by including
 			//- them specifically here, instead of bootstrap-3.3.5.min.js

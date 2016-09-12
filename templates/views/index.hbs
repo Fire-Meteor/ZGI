@@ -1,71 +1,134 @@
 {{!< default}}
-<!--<div class="container">
-	<div class="jumbotron"><img src="/images/logo.svg" width="160">
-		<h1>Welcome</h1>
-		<p>This is your new <a href='http://keystonejs.com' target='_blank'>KeystoneJS</a> website.</p>
-		<p>
-			It includes the latest versions of
-			<a href='http://getbootstrap.com/' target='_blank'>Bootstrap</a>
-			and <a href='http://www.jquery.com/' target='_blank'>jQuery</a>.
-		</p>
-		<p>Visit the <a href='http://keystonejs.com/guide' target='_blank'>Getting Started</a> guide to learn how to customise it.dddccccd</p>
-		<hr>
-		<p>We have created a default Admin user for you with the email <strong>panliang1113@gmail.com</strong> and the password <strong>secret02211gfgg</strong>.</p>
-		<p><a href="/keystone/signin" style="margin-right: 10px" class="btn btn-lg btn-primary">Sign in</a> to use the Admin UI                </p>
-		<hr>
-		<p>
-<<<<<<< HEAD
-			Remember to <a href='https://github.com/keystonejs/keystone' target='_blank'>Star KeystoneJS on GitHub</a> and
-=======
-			Remember to <a href='https://github.com/keystonejs/keystone' target='_blank'>Star KeystoneJS on GitHubt</a> and
->>>>>>> a6d9214bb814d679d771b9a631bca99826fe6890
-			<a href='https://twitter.com/keystonejs' target='_blank'>follow @keystonejs</a> on twitter for updates.
-		</p>
-	</div>
-	
-</div>-->
+<link rel="stylesheet" type="text/css" href="/bower_components/fullpage.js/jquery.fullPage.css" />
+<script type="text/javascript" src="/bower_components/fullpage.js/jquery.fullPage.min.js"></script>
 
-<div id="div_fullpage" class="homepage_slide">
-	<div class="container">
-		<p class="h1">Title 42px</p>
-		<button class="btn h4" type="button">Introduction18</button>
-        <button class="btn h4" type="button">Product18</button>
-	</div>
-</div>
-<div class="container part">
-	<header class="text-center h2">Product Applications Scenarios
-        <div class="line"></div>
-	</header>
-	<div class="Scenarios row">
-        <div class="col-lg-3">
-			<a href="" class="Scenarios_card">
-				<img src="/images/ZGI/img_apply1.png" width="200"  />
-				<p class="h5 text-center">Cleaning</p>
-			</a>
+<script>
+	$(document).ready(function(){
+		$("#div_fullpage").fullpage({
+            autoScrolling: false,
+            fitToSection:false
+           
+		});
+	})
+</script>
+<div id="div_fullpage">
+    <div class="section " id ="div_section_home">
+		<div class="homepage_slide">
+			<div class="container">
+				<div class="banner_title">
+					<p class="h1">干冰冷链供应领跑者</p>
+					<button class="btn h4" type="button">公司简介</button>
+					<button class="btn h4" type="button">购买产品</button>
+				</div>
+			</div>
 		</div>
-        <div class="col-lg-3">
-            <a href="" class="Scenarios_card">
-                <img src="/images/ZGI/img_apply2.png" width="200"  />
-                <p class="h5 text-center">Storage</p>
-            </a>
-        </div>
-        <div class="col-lg-3">
-            <a href="" class="Scenarios_card">
-                <img src="/images/ZGI/img_apply3.png" width="200"  />
-                <p class="h5 text-center">Edible</p>
-            </a>
-        </div>
-        <div class="col-lg-3">
-            <a href="" class="Scenarios_card">
-                <img src="/images/ZGI/img_apply4.png" width="200"  />
-                <p class="h5 text-center">Stage</p>
-            </a>
-        </div>
-
+		<div class="part">
+            <header class="text-center h2">Product Applications Scenarios
+                <div class="line"></div>
+            </header>
+		</div>
 	</div>
-</div>
-<div class="part">
-    <header class="text-center h2">Cooperative Client
-        <div class="line"></div>
-    </header>	
+	<div class="section">
+		<div class="container part">
+			<div class="Scenarios row">
+				<div class="col-lg-3">
+					<a href="" class="Scenarios_card">
+						<img src="/images/ZGI/img_apply1.png" width="200"  />
+						<p class="h5 text-center">Cleaning</p>
+					</a>
+				</div>
+				<div class="col-lg-3">
+					<a href="" class="Scenarios_card">
+						<img src="/images/ZGI/img_apply2.png" width="200"  />
+						<p class="h5 text-center">Storage</p>
+					</a>
+				</div>
+				<div class="col-lg-3">
+					<a href="" class="Scenarios_card">
+						<img src="/images/ZGI/img_apply3.png" width="200"  />
+						<p class="h5 text-center">Edible</p>
+					</a>
+				</div>
+				<div class="col-lg-3">
+					<a href="" class="Scenarios_card">
+						<img src="/images/ZGI/img_apply4.png" width="200"  />
+						<p class="h5 text-center">Stage</p>
+					</a>
+				</div>
+		
+			</div>
+		</div>
+		<div class="part">
+			<header class="text-center h2">Cooperative Client
+				<div class="line"></div>
+			</header>
+			<div class="cooperation">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3 cooperation_logo text-center">
+							<img src="/images/ZGI/logo_yuanzu.png" height="40" />
+						</div>
+						<div class="col-lg-3 cooperation_logo text-center">
+							<img src="/images/ZGI/logo_yiguo.png" height="40" />
+						</div>
+						<div class="col-lg-3 cooperation_logo text-center">
+							<img src="/images/ZGI/logo_pepsi.png" height="40" />
+						</div>
+						<div class="col-lg-3 cooperation_logo text-center">
+							<img src="/images/ZGI/logo_coca.png" height="40" />
+						</div>
+						<div class="col-lg-3 cooperation_logo text-center">
+							<img src="/images/ZGI/logo_hagen.png" height="40" />
+						</div>
+						<div class="col-lg-3 cooperation_logo text-center">
+							<img src="/images/ZGI/logo_yili.png" height="40" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="part container">
+			<header class="text-center h2">Consult More ?
+				<div class="line"></div>
+			</header>
+			<div class="row info">
+				<div class="col-lg-3 col-lg-offset-2">
+					<div class="info_card clearfix ">
+						<img src="/images/ZGI/icon_phone.png" width="60" class="pull-left" />
+						<div class="pull-left">
+							<p class="h3 info_name">phone</p>
+							<p class="h6 info_detail">021-68466455</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-lg-offset-3">
+					<div class="info_card clearfix ">
+						<img src="/images/ZGI/icon_mail.png" width="60" class="pull-left" />
+						<div class="pull-left">
+							<p class="h3 info_name">mail</p>
+							<p class="h6 info_detail">zhenxingaisi@hotmail.com</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-lg-offset-2">
+					<div class="info_card clearfix ">
+						<img src="/images/ZGI/icon_fax.png" width="60" class="pull-left" />
+						<div class="pull-left">
+							<p class="h3 info_name">Fax</p>
+							<p class="h6 info_detail">021-68466134</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-lg-offset-3">
+					<div class="info_card clearfix ">
+						<img src="/images/ZGI/icon_map.png" width="60" class="pull-left" />
+						<div class="pull-left">
+							<p class="h3 info_name">Zhen Xin</p>
+							<p class="h6 info_detail">Baoshan district, Shanghai</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
