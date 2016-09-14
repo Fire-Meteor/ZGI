@@ -7,12 +7,15 @@
     "Daniel(lianpan) <lianpan@ebay.com>"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/Fire-Meteor/ZGI",
+  "homepage": "https://github.com/Meteor-Studio/ZGI",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "font-awesome": "fontawesome#^4.6.3"
+  }
 }

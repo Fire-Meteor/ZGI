@@ -1,31 +1,45 @@
-<div id="header" style="position: absolute; top: 0px; right: 0px;z-index: 500;">
-    <div class="container">
-        <div role="navigation" class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                    </button>
-                    <a href="/" class="navbar-brand">dryice</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-left">
-						{{# each navLinks}}
-                            <li {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>
-                                <a href="{{ href }}">{{ label }}</a>
-                            </li>
-						{{/each}}
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-						{{#if user}}
-                            <li><a href="/keystone/signout">Sign Out</a></li>
-						{{else}}
-                            <li><a href="/keystone/signin">Sign In</a></li>
-						{{/if}}
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+
+<div id="div_header" class="site_header" >
+	<div class="container-fluid">
+		<nav role="navigation" class="navbar">
+			<div class="navbar-header">
+				<button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a href="/" class="navbar-brand">
+					<img src="/images/ZGI/logo_company.png" height="40"/>
+				</a>
+			</div>
+			<div class="collapse navbar-collapse main_nav">
+				<!--<ul class="nav navbar-nav navbar-right nav_phone">-->
+                    <!--<li>-->
+                        <!--<a>-->
+                            <!--<span class="fa fa-phone h3"></span>&nbsp;&nbsp;&nbsp;-->
+                            <!--<span class="h5">021-68466455</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+				<!--</ul>-->
+				<!--<ul class="nav navbar-nav navbar-right main_nav_ul">-->
+					<!--&lt;!&ndash;{{# each navLinks}}&ndash;&gt;-->
+						<!--&lt;!&ndash;<li {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>&ndash;&gt;-->
+							<!--&lt;!&ndash;<a href="{{ href }}">{{ label }}</a>&ndash;&gt;-->
+						<!--&lt;!&ndash;</li>&ndash;&gt;-->
+					<!--&lt;!&ndash;{{/each}}&ndash;&gt;-->
+					<!--<li class="active"><a href="#" class="h5">首页</a></li>-->
+					<!--<li><a href="#" class="h5">产品应用</a></li>-->
+					<!--<li><a href="#" class="h5">科普文档</a></li>-->
+					<!--<li><a href="#" class="h5">关于我们</a></li>-->
+					<!--<li><a href="#" class="h5">在线购买</a></li>-->
+				<!--</ul>-->
+				<!--<ul class="nav navbar-nav navbar-right">-->
+					<!--{{#if user}}-->
+						<!--<li><a href="/keystone/signout">Sign Out</a></li>-->
+					<!--{{else}}-->
+						<!--<li><a href="/keystone/signin">Sign In</a></li>-->
+					<!--{{/if}}-->
+				<!--</ul>-->
+			</div>
+		</nav>
+	</div>
 </div>

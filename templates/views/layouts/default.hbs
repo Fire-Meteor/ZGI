@@ -10,7 +10,9 @@
         <meta name="Resource-type" content="Document" />
 		<title>dryice</title>
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        
 		<link href="/styles/site.min.css" rel="stylesheet">
+        <link href="/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 		<link href="/styles/less/siteStyle.css" rel="stylesheet">
         <!--<link href="/js/fullpageJS/jquery.fullPage.css" rel="stylesheet">-->
 		<script src="/bower_components/jquery/dist/jquery.min.js" ></script>
@@ -25,9 +27,21 @@
 			<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
 			<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
+		<script type="text/javascript">
+            $(function () {
+                var winHeight = $(window).height();
+                var bHeight = $("body").outerHeight(true);
+                if (bHeight < winHeight) {
+                    $("#div_footer").css({ "position": "fixed", "bottom": "0", "z-index": "500" });
+                }
+                else {
+                    $("#div_footer").css({ "position": "static" });
+                }
+            });
+		</script>
 
 	</head>
-
+	
 	<body>
 	
 		{{> menu}}
@@ -69,8 +83,43 @@
 				<!--<p>Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>-->
 			<!--</div>-->
 		<!--</div>-->
-		<footer class="text-center">
-			<p>Copyright © 2016 上海振信气体有限公司</p>
+		<footer id="div_footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 clearfix">
+						<ul class="pull-left footer_nav" style="width: 23%">
+							<p>导航</p>
+							<li><a href="#">产品应用</a></li>
+                            <li><a href="#">科普文档</a></li>
+                            <li><a href="#">关于我们</a></li>
+                            <li><a href="#">在线购买</a></li>
+						</ul>
+                        <ul class="pull-left footer_nav" style="width: 23%">
+                            <p class="h4">产品</p>
+                            <li><a href="#">食用干冰</a></li>
+                            <li><a href="#">降温制冷</a></li>
+                            <li><a href="#">干冰清洁</a></li>
+                            <li><a href="#">舞台烟雾</a></li>
+                        </ul>
+                        <ul class="pull-left footer_nav" style="width: 23%">
+                            <p class="h4">科普文档</p>
+                            <li><a href="#">食用干冰</a></li>
+                            <li><a href="#">降温制冷</a></li>
+                            <li><a href="#">干冰清洁</a></li>
+                            <li><a href="#">舞台烟雾</a></li>
+                        </ul>
+                        <ul class="pull-left footer_nav">
+                            <p class="h4">联系我们</p>
+                            <li><a>上海振信有限公司</a></li>
+                            <li><a>电话咨询：021-68466455</a></li>
+                            <li><a>邮件咨询：zhenxingaisi@hotmail.com</a></li>
+                            <li><a>公司传真：021-68486134</a></li>
+                            <li><a>周一至周五：9:00~18:00</a></li>
+						</ul>
+                    </div>
+				</div>
+				<p class="text-center copyright">Copyright © 2016 上海振信气体有限公司</p>
+			</div>
 		</footer>
 		{{!--
 			//- jQuery 1.11.3 is included by default, and required by both Bootstrap
