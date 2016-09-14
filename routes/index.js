@@ -26,6 +26,13 @@ var importRoutes = keystone.importer(__dirname);
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
+// 处理404错误
+keystone.set('404', function (req, res, next) {
+	res.status(404).render('errors/404');
+});
+
+
+
 // Import Route Controllers
 var routes = {
 	views: importRoutes('./views'),
@@ -35,14 +42,36 @@ var routes = {
 exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
-	app.get('/blog/:category?', routes.views.blog);
-	app.get('/blog/post/:post', routes.views.post);
+	// app.get('/blog/:category?', routes.views.blog);
+	// app.get('/blog/post/:post', routes.views.post);
+	// app.get('/gallery', routes.views.gallery);
+	// app.all('/contact', routes.views.contact);
+
+	// app.get('/blog/post/:post', function (req,res) {
+	// 	var url=req.url;
+	// 	url=url.replace('/blog/post/','/product/item/');
+	// 	res.redirect(url);
+	// });
+	
+	
 	app.get('/gallery', routes.views.gallery);
 	app.all('/contact', routes.views.contact);
+
+	app.get('/product/:category?', routes.views.blog);
+	app.get('/product/item/:post', routes.views.post);
+	
+	app.get('/document/:category?', routes.views.documents);
+	app.get('/document/item/:post', routes.views.document);
+	
+	app.get('/buy', routes.views.post);
+
 	
 	app.get('/admin/navigations_map', routes.views.admin.navigation_map);
 	//app.get('/:parent/:slug?', routes.views.pages);
 
+	
+	
+	
 	
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

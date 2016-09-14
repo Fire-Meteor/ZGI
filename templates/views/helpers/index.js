@@ -115,6 +115,37 @@ module.exports = function () {
 		return new hbs.SafeString(output);
 	};
 
+	_helpers.documentCategoryList = function (categories, options) {
+		var autolink = _.isString(options.hash.autolink) && options.hash.autolink === 'false' ? false : true;
+		var separator = _.isString(options.hash.separator) ? options.hash.separator : ', ';
+		var prefix = _.isString(options.hash.prefix) ? options.hash.prefix : '';
+		var suffix = _.isString(options.hash.suffix) ? options.hash.suffix : '';
+		var output = '';
+
+		function createTagList (tags) {
+			var tagNames = _.pluck(tags, 'name');
+
+			if (autolink) {
+				return _.map(tags, function (tag) {
+					return linkTemplate({
+						url: ('/document/' + tag.key),
+						text: _.escape(tag.name),
+					});
+				}).join(separator);
+			}
+			return _.escape(tagNames.join(separator));
+		}
+
+		if (categories && categories.length) {
+			output = prefix + createTagList(categories) + suffix;
+		}
+		return new hbs.SafeString(output);
+	};
+	
+	
+	
+	
+	
 	/**
 	 * KeystoneJS specific helpers
 	 * ===========================
@@ -191,21 +222,62 @@ module.exports = function () {
 	// editing.  Should look at Django/Ghost which has an object layer to access
 	// the routes by keynames to reduce the maintenance of changing urls
 
+	
+	// // Direct url link to a specific post
+	// _helpers.postUrl = function (postSlug, options) {
+	// 	return ('/blog/post/' + postSlug);
+	// };
+    //
+	// // might be a ghost helper
+	// // used for pagination urls on blog
+	// _helpers.pageUrl = function (pageNumber, options) {
+	// 	return '/blog?page=' + pageNumber;
+	// };
+    //
+	// // create the category url for a blog-category page
+	// _helpers.categoryUrl = function (categorySlug, options) {
+	// 	return ('/blog/' + categorySlug);
+	// };
+
+	
 	// Direct url link to a specific post
 	_helpers.postUrl = function (postSlug, options) {
-		return ('/blog/post/' + postSlug);
+		return ('/product/item/' + postSlug);
 	};
 
 	// might be a ghost helper
 	// used for pagination urls on blog
 	_helpers.pageUrl = function (pageNumber, options) {
-		return '/blog?page=' + pageNumber;
+		return '/product?page=' + pageNumber;
 	};
 
 	// create the category url for a blog-category page
 	_helpers.categoryUrl = function (categorySlug, options) {
-		return ('/blog/' + categorySlug);
+		return ('/product/' + categorySlug);
 	};
+
+	
+	
+	// Direct url link to a specific post
+	_helpers.documentUrl = function (postSlug, options) {
+		return ('/document/item/' + postSlug);
+	};
+
+	// might be a ghost helper
+	// used for pagination urls on blog
+	_helpers.documentPageUrl = function (pageNumber, options) {
+		return '/document?page=' + pageNumber;
+	};
+
+	// create the category url for a blog-category page
+	_helpers.documentCategoryUrl = function (categorySlug, options) {
+		return ('/document/' + categorySlug);
+	};
+
+
+
+
+
 
 	// ### Pagination Helpers
 	// These are helpers used in rendering a pagination system for content
@@ -226,7 +298,7 @@ module.exports = function () {
 		}
 		return options.inverse(this);
 	};
-
+	
 	_helpers.paginationNavigation = function (pages, currentPage, totalPages, options) {
 		var html = '';
 
@@ -271,6 +343,35 @@ module.exports = function () {
 		}
 		return _helpers.pageUrl(nextPage);
 	};
+	
+	
+	_helpers.documentPaginationNavigation = function (pages, currentPage, totalPages, options) {
+		var html = '';
+
+		// pages should be an array ex.  [1,2,3,4,5,6,7,8,9,10, '....']
+		// '...' will be added by keystone if the pages exceed 10
+		_.each(pages, function (page, ctr) {
+			// create ref to page, so that '...' is displayed as text even though int value is required
+			var pageText = page;
+			// create boolean flag state if currentPage
+			var isActivePage = ((page === currentPage) ? true : false);
+			// need an active class indicator
+			var liClass = ((isActivePage) ? ' class="active"' : '');
+
+			// if '...' is sent from keystone then we need to override the url
+			if (page === '...') {
+				// check position of '...' if 0 then return page 1, otherwise use totalPages
+				page = ((ctr) ? totalPages : 1);
+			}
+
+			// get the pageUrl using the integer value
+			var pageUrl = _helpers.documentPageUrl(page);
+			// wrapup the html
+			html += '<li' + liClass + '>' + linkTemplate({ url: pageUrl, text: pageText }) + '</li>\n';
+		});
+		return html;
+	};
+	
 
 
 	//  ### Flash Message Helper

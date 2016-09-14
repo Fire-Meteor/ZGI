@@ -14,6 +14,8 @@ exports = module.exports = function(req, res, next) {
 		slug: req.params.slug || ''
 	};
 
+
+	
 	// Load the current post
 	view.on('init', function(done) {
 

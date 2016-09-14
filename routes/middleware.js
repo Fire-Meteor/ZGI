@@ -19,14 +19,19 @@ var keystone = require('keystone');
 */
 exports.initLocals = function (req, res, next) {
 	res.locals.navLinks = [
-		{ label: 'Home', key: 'home', href: '/' },
-		{ label: 'Blog', key: 'blog', href: '/blog' },
-		{ label: 'Gallery', key: 'gallery', href: '/gallery' },
-		{ label: 'Contact', key: 'contact', href: '/contact' },
+		{ label: '首页', key: 'home', href: '/' },
+		{ label: '产品应用', key: 'blog', href: '/product' },
+		{ label: '科普文档', key: 'document', href: '/document' },
+		{ label: '关于我们', key: 'contact', href: '/contact' },
+		{ label: '在线购买', key: 'buy', href: '/' },
 	];
-	res.locals.user = req.user;
+    
+	// { label: '产品应用', key: 'blog', href: '/blog' },
+	// { label: '科普文档', key: 'gallery', href: '/gallery' },
+	// { label: '关于我们', key: 'contact', href: '/contact' },
+	// { label: '在线购买', key: 'gallery', href: '/gallery' },
 	
-	// locals.nav = keystone.get('nav');
+	res.locals.user = req.user;
 	
 	next();
 };
@@ -58,3 +63,47 @@ exports.requireUser = function (req, res, next) {
 		next();
 	}
 };
+
+
+/**
+ Inits the error handler functions into `req`
+ */
+
+exports.initErrorHandlers = function(req, res, next) {
+	res.err = function(err, title, message) {
+		res.status(500).render('errors/500', {
+			err: err,
+			errorTitle: title,
+			errorMsg: message
+		});
+	}
+	res.notfound = function(title, message) {
+		res.status(404).render('errors/404', {
+			errorTitle: title,
+			errorMsg: message
+		});
+	}
+	next();
+};
+
+
+
+/**
+ Returns a closure that can be used within views to change a parameter in the query string
+ while preserving the rest.
+ */
+
+var qs_set = exports.qs_set = function(req, res) {
+	return function qs_set(obj) {
+		var params = _.clone(req.query);
+		for (var i in obj) {
+			if (obj[i] === undefined || obj[i] === null) {
+				delete params[i];
+			} else if (obj.hasOwnProperty(i)) {
+				params[i] = obj[i];
+			}
+		}
+		var qs = querystring.stringify(params);
+		return req.path + (qs ? '?' + qs : '');
+	}
+}

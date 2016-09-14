@@ -29,11 +29,6 @@ function updateNavigation() {
 	});
 }
 
-//var t=keystone.get('nav');
-
-//var tt=t;
-
-
 Page.add({
 	title: {type: String, required: true},
 	slug: {type: String, index: true},

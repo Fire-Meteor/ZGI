@@ -36,6 +36,8 @@ keystone.init({
 	'user model': 'User',
 	'wysiwyg images': true,
 	'wysiwyg cloudinary images': true,
+
+	port:process.env.PORT || 3456
 });
 
 // Load your project's Models
@@ -48,7 +50,7 @@ keystone.set('locals', {
 	_: require('lodash'),
 	env: keystone.get('env'),
 	utils: keystone.utils,
-	editable: keystone.content.editable,
+	editable: keystone.content.editable
 });
 
 // Load your project's Routes
@@ -94,33 +96,7 @@ keystone.set('nav', {
 });
 
 
-//
-// keystone.set('nav', [
-// 	{
-// 		label: 'Home',
-// 		key: 'home',
-// 		href: '/'
-// 	},
-// 	{
-// 		label: 'About',
-// 		key: 'about',
-// 		href: '/about'
-// 	}, 
-// 	{
-// 		label: 'Blog',
-// 		key: 'blog',
-// 		href: '/blog'
-// 	}, 
-// 	{
-// 		label: 'Gallery',
-// 		key: 'gallery',
-// 		href: '/gallery'
-// 	}, 
-// 	{
-// 		label: 'Contact',
-// 		key: 'contact',
-// 		href: '/contact'
-// 	}]);
+keystone.set('tmpppp','aaa');
 
 // Start Keystone to connect to your database and initialise the web server
 
