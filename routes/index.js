@@ -65,9 +65,12 @@ exports = module.exports = function (app) {
 	
 	app.get('/buy', routes.views.post);
 
+
+
+	app.get('/keystone/navigations', routes.views.admin.navigation_map);
 	
 	app.get('/admin/navigations_map', routes.views.admin.navigation_map);
-	//app.get('/:parent/:slug?', routes.views.pages);
+	
 
 	
 	

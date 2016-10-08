@@ -21,11 +21,11 @@ Navigation.add(
 				{label: 'Link', value: 'link'},
 			]
 		},
-		description: {type: String},
+		description: {type: Types.Textarea},
 		url: {type: Types.Url},
 		keywords: {type: String},
-		parent: {type: String, initial: '/'},
-		sortBy: {type: Types.Number, initial: 1},
+		parent: {type: Types.Relationship, ref: 'Navigation'},
+		sortBy: {type: Types.Number},
 		isValid: {type: Types.Boolean, initial: true},
 		createBy: {type: Types.Relationship, ref: 'User', index: true},
 		createDate: {type: Types.Date},
@@ -39,5 +39,18 @@ Navigation.schema.pre('save', function (next) {
 });
 
 
-Navigation.defaultColumns = 'name, type, parent, url, sortBy, isValid';
+Navigation.schema.virtual('fullPath').get(function () {
+	var thisName = this.name;
+
+	if (this.parent == null || typeof (this.parent) == 'undefined' || this.parent == '') {
+		return thisName;
+	}
+	else {
+		return this.parent.name + '/' + thisName;
+	}
+});
+
+Navigation.relationship({ref: 'Navigation', path: "children", refPath: "parent"});
+
+Navigation.defaultColumns = 'name, type, parent, url, keywords, sortBy, isValid';
 Navigation.register();
