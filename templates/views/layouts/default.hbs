@@ -63,9 +63,9 @@
 					if($(window).scrollTop()>=1000){
 						if(flag==1){
 							
-							var scrollYear =new CountUp("span_year",0,1998,0,1.5,options);
-							var scrollSale=new CountUp("span_sale",0,3000,0,1.5,options);
-							var scrollProduce=new CountUp("span_produce",0,100,0,1.5,options);
+							var scrollYear =new CountUp("span_year",0,1998,0,2.5,options);
+							var scrollSale=new CountUp("span_sale",0,3000,0,2.5,options);
+							var scrollProduce=new CountUp("span_produce",0,100,0,2.5,options);
 							
 							scrollYear.start();
 							scrollSale.start();
@@ -90,7 +90,7 @@
 			
             function scrollToAnchor(aid) {
                 var aTag=$("#"+aid);
-                $("html,body").animate({scrollTop:aTag.offset().top},"slow");
+                $("html,body").animate({scrollTop:aTag.offset().top},"fast");
             }
 
 			

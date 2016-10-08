@@ -11,35 +11,78 @@ var _ = require('lodash');
 var keystone = require('keystone');
 
 /**
-	Initialises the standard view locals
+ Initialises the standard view locals
 
-	The included layout depends on the navLinks array to generate
-	the navigation in the header, you may wish to change this array
-	or replace it with your own templates / logic.
-*/
+ The included layout depends on the navLinks array to generate
+ the navigation in the header, you may wish to change this array
+ or replace it with your own templates / logic.
+ */
 exports.initLocals = function (req, res, next) {
+
+	res.locals.user = req.user;
+
 	res.locals.navLinks = [
-		{ label: '首页', key: 'home', href: '/' },
-		{ label: '产品应用', key: 'blog', href: '/product' },
-		{ label: '科普文档', key: 'document', href: '/document' },
-		{ label: '关于我们', key: 'contact', href: '/contact' },
-		{ label: '在线购买', key: 'buy', href: '/' },
+		{label: '首页', key: 'home', href: '/',children: []},
+		{label: '产品应用', key: 'blog', href: '/product',children: []},
+		{label: '科普文档', key: 'document', href: '/document',children: []},
+		// { label: '关于我们', key: 'contact', href: '/contact' },
+		// { label: '在线购买', key: 'buy', href: '/' },
 	];
-    
+
+
+	var q = keystone.list('Navigation').model.find().populate('parent');
+	q.exec(function (err, result) {
+		var tmpNav = result;
+
+		for (var n in tmpNav) {
+			
+			thisNav=tmpNav[n];
+			if (thisNav.parent == '' ||  thisNav.parent == null) {
+				res.locals.navLinks.push({
+					label: thisNav.name,
+					key: thisNav.keywords,
+					href: thisNav.fullPath,
+					children: []
+				});
+			}
+			else {
+				var tt=res.locals.navLinks;
+				
+				for (var i in tt) {
+					if (tt[i].label == thisNav.parent.name) {
+						res.locals.navLinks[i].children.push({
+							label: tmpNav[n].name,
+							key: tmpNav[n].keywords,
+							href: tmpNav[n].fullPath
+						});
+					}
+				}
+			}
+		}
+
+
+		res.locals.navLinks.push(
+			{label: '关于我们', key: 'contact', href: '/contact',children: []},
+			{label: '在线购买', key: 'buy', href: '/',children: []}
+		);
+
+
+		next(err);
+	});
+
+
 	// { label: '产品应用', key: 'blog', href: '/blog' },
 	// { label: '科普文档', key: 'gallery', href: '/gallery' },
 	// { label: '关于我们', key: 'contact', href: '/contact' },
 	// { label: '在线购买', key: 'gallery', href: '/gallery' },
-	
-	res.locals.user = req.user;
-	
-	next();
+
+
 };
 
 
 /**
-	Fetches and clears the flashMessages before a view is rendered
-*/
+ Fetches and clears the flashMessages before a view is rendered
+ */
 exports.flashMessages = function (req, res, next) {
 	var flashMessages = {
 		info: req.flash('info'),
@@ -47,13 +90,15 @@ exports.flashMessages = function (req, res, next) {
 		warning: req.flash('warning'),
 		error: req.flash('error'),
 	};
-	res.locals.messages = _.some(flashMessages, function (msgs) { return msgs.length; }) ? flashMessages : false;
+	res.locals.messages = _.some(flashMessages, function (msgs) {
+		return msgs.length;
+	}) ? flashMessages : false;
 	next();
 };
 
 
 /**
-	Prevents people from accessing protected pages when they're not signed in
+ Prevents people from accessing protected pages when they're not signed in
  */
 exports.requireUser = function (req, res, next) {
 	if (!req.user) {
@@ -69,15 +114,15 @@ exports.requireUser = function (req, res, next) {
  Inits the error handler functions into `req`
  */
 
-exports.initErrorHandlers = function(req, res, next) {
-	res.err = function(err, title, message) {
+exports.initErrorHandlers = function (req, res, next) {
+	res.err = function (err, title, message) {
 		res.status(500).render('errors/500', {
 			err: err,
 			errorTitle: title,
 			errorMsg: message
 		});
 	}
-	res.notfound = function(title, message) {
+	res.notfound = function (title, message) {
 		res.status(404).render('errors/404', {
 			errorTitle: title,
 			errorMsg: message
@@ -87,13 +132,12 @@ exports.initErrorHandlers = function(req, res, next) {
 };
 
 
-
 /**
  Returns a closure that can be used within views to change a parameter in the query string
  while preserving the rest.
  */
 
-var qs_set = exports.qs_set = function(req, res) {
+var qs_set = exports.qs_set = function (req, res) {
 	return function qs_set(obj) {
 		var params = _.clone(req.query);
 		for (var i in obj) {
