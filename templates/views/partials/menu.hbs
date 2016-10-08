@@ -12,15 +12,22 @@
 				</a>
 			</div>
 			<div class="collapse navbar-collapse main_nav">
-				<!--<ul class="nav navbar-nav navbar-right nav_phone">-->
-                    <!--<li>-->
-                        <!--<a>-->
-                            <!--<span class="fa fa-phone h3"></span>&nbsp;&nbsp;&nbsp;-->
-                            <!--<span class="h5">021-68466455</span>-->
-                        <!--</a>-->
-                    <!--</li>-->
-				<!--</ul>-->
 				
+                <ul class="nav navbar-nav navbar-right">
+					{{#if user}}
+                        <li><a href="/keystone/signout">Sign Out</a></li>
+					{{else}}
+                        <li><a href="/keystone/signin">Sign In</a></li>
+					{{/if}}
+                </ul>
+                <ul class="nav navbar-nav navbar-right nav_phone">
+                    <li>
+                        <a>
+                            <span class="fa fa-phone h3"></span>&nbsp;&nbsp;&nbsp;
+                            <span class="h5">021-68466455</span>
+                        </a>
+                    </li>
+                </ul>
 				<ul class="nav navbar-nav navbar-right main_nav_ul">
 					{{# each navLinks}}
 						<li {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>
@@ -28,13 +35,7 @@
 						</li>
 					{{/each}}
 				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					{{#if user}}
-						<li><a href="/keystone/signout">Sign Out</a></li>
-					{{else}}
-						<li><a href="/keystone/signin">Sign In</a></li>
-					{{/if}}
-				</ul>
+				
 			</div>
 		</nav>
 	</div>

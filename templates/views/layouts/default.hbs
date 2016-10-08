@@ -15,7 +15,8 @@
         <link href="/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 		<link href="/styles/less/siteStyle.css" rel="stylesheet">
         <!--<link href="/js/fullpageJS/jquery.fullPage.css" rel="stylesheet">-->
-		<script src="/bower_components/jquery/dist/jquery.min.js" ></script>
+		<script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js" ></script>
+		<script type="text/javascript" src="/bower_components/countUpJS/countUp.min.js" ></script>
 		<!--<script src="/js/fullpageJS/jquery.fullPage.js"></script>-->
 		{{!-- This file provides the default styling for the KeystoneJS Content Editor
 			- only renders when user is logged in and admin--}}
@@ -38,6 +39,62 @@
                     $("#div_footer").css({ "position": "static" });
                 }
             });
+
+            var options = {
+                useEasing : true,
+                useGrouping : true,
+                separator : ',',
+                decimal : '.',
+                prefix : '',
+                suffix : ''
+            };
+			
+            var flag=1;
+            
+            $(window).scroll(function(){
+				if($(window).scrollTop()==0){
+                    $("#div_header").removeClass("fixed_header");
+                    $(".navbar-brand img").attr("src","/images/ZGI/logo_company.png");
+				}
+                else {
+                    $("#div_header").addClass("fixed_header");
+					$(".navbar-brand img").attr("src","/images/ZGI/logo_companyblue.png");
+                    
+					if($(window).scrollTop()>=1000){
+						if(flag==1){
+							
+							var scrollYear =new CountUp("span_year",0,1998,0,1.5,options);
+							var scrollSale=new CountUp("span_sale",0,3000,0,1.5,options);
+							var scrollProduce=new CountUp("span_produce",0,100,0,1.5,options);
+							
+							scrollYear.start();
+							scrollSale.start();
+							scrollProduce.start();
+							
+                            flag=0;
+                        }
+						
+					}
+				}
+				
+            })
+            
+			$(function(){
+				$("#a_consult").click(function () {
+                    scrollToAnchor("div_consult");
+                })
+				$("#a_companyIntro").click(function(){
+                    scrollToAnchor("div_companyIntro");
+				})
+			})
+			
+            function scrollToAnchor(aid) {
+                var aTag=$("#"+aid);
+                $("html,body").animate({scrollTop:aTag.offset().top},"slow");
+            }
+
+			
+			
 		</script>
 
 	</head>
@@ -86,29 +143,35 @@
 		<footer id="div_footer">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-12 clearfix">
-						<ul class="pull-left footer_nav" style="width: 23%">
+                    <div class="col-lg-2  col-md-4">
+						<ul class="footer_nav">
 							<p>导航</p>
 							<li><a href="#">产品应用</a></li>
                             <li><a href="#">科普文档</a></li>
                             <li><a href="#">关于我们</a></li>
                             <li><a href="#">在线购买</a></li>
 						</ul>
-                        <ul class="pull-left footer_nav" style="width: 23%">
+					</div>
+					<div class="col-lg-2  col-md-4">
+                        <ul class="footer_nav" >
                             <p class="h4">产品</p>
                             <li><a href="#">食用干冰</a></li>
                             <li><a href="#">降温制冷</a></li>
                             <li><a href="#">干冰清洁</a></li>
                             <li><a href="#">舞台烟雾</a></li>
                         </ul>
-                        <ul class="pull-left footer_nav" style="width: 23%">
+					</div>
+                    <div class="col-lg-2  col-md-4">
+                        <ul class="footer_nav" >
                             <p class="h4">科普文档</p>
                             <li><a href="#">食用干冰</a></li>
                             <li><a href="#">降温制冷</a></li>
                             <li><a href="#">干冰清洁</a></li>
                             <li><a href="#">舞台烟雾</a></li>
                         </ul>
-                        <ul class="pull-left footer_nav">
+					</div>
+                    <div class="col-lg-4 col-lg-offset-2  col-md-12">
+                        <ul class="footer_nav">
                             <p class="h4">联系我们</p>
                             <li><a>上海振信有限公司</a></li>
                             <li><a>电话咨询：021-68466455</a></li>
@@ -116,7 +179,7 @@
                             <li><a>公司传真：021-68486134</a></li>
                             <li><a>周一至周五：9:00~18:00</a></li>
 						</ul>
-                    </div>
+					</div>
 				</div>
 				<p class="text-center copyright">Copyright © 2016 上海振信气体有限公司</p>
 			</div>

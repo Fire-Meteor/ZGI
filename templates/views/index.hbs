@@ -7,9 +7,9 @@
 		$("#div_fullpage").fullpage({
             autoScrolling: false,
             fitToSection:false
-           
 		});
 	})
+	
 </script>
 <div id="div_fullpage">
     <div class="section " id ="div_section_home">
@@ -17,8 +17,8 @@
 			<div class="container">
 				<div class="banner_title">
 					<p class="h1">干冰冷链供应领跑者</p>
-					<button class="btn h4" type="button">公司简介</button>
-					<button class="btn h4" type="button">购买产品</button>
+					<a href="#div_companyIntro" id="a_companyIntro" class="h4">公司简介</a>
+					<a href="#div_consult" id="a_consult" class="h4">产品咨询</a>
 				</div>
 			</div>
 		</div>
@@ -31,67 +31,97 @@
 	<div class="section">
 		<div class="container part">
 			<div class="Scenarios row">
-				<div class="col-lg-3">
-					<a href="" class="Scenarios_card">
+				<div class="col-lg-3 col-md-6">
+					<a href="" class="Scenarios_card text-center">
 						<img src="/images/ZGI/img_apply3.png" width="200"  />
 						<p class="h5 text-center">食用干冰</p>
 					</a>
 				</div>
-				<div class="col-lg-3">
-					<a href="" class="Scenarios_card">
+				<div class="col-lg-3 col-md-6">
+					<a href="" class="Scenarios_card text-center">
 						<img src="/images/ZGI/img_apply2.png" width="200"  />
 						<p class="h5 text-center">降温制冷</p>
 					</a>
 				</div>
-				<div class="col-lg-3">
-					<a href="" class="Scenarios_card">
+				<div class="col-lg-3 col-md-6">
+					<a href="" class="Scenarios_card text-center">
 						<img src="/images/ZGI/img_apply1.png" width="200"  />
 						<p class="h5 text-center">干冰清洁</p>
 					</a>
 				</div>
-				<div class="col-lg-3">
-					<a href="" class="Scenarios_card">
+				<div class="col-lg-3 col-md-6">
+					<a href="" class="Scenarios_card text-center">
 						<img src="/images/ZGI/img_apply4.png" width="200"  />
 						<p class="h5 text-center">舞台烟雾</p>
 					</a>
 				</div>
 			</div>
 		</div>
-		<div class="part">
+		<div class="part" id="div_companyIntro">
 			<header class="text-center h2">部分合作客户
 				<div class="line"></div>
 			</header>
 			<div class="cooperation">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-3 cooperation_logo text-center">
+						<div class="col-lg-3 col-md-3  col-sm-6 cooperation_logo text-center">
 							<img src="/images/ZGI/logo_yuanzu.png" height="40" />
 						</div>
-						<div class="col-lg-3 cooperation_logo text-center">
+						<div class="col-lg-3 col-md-3  col-sm-6 cooperation_logo text-center">
 							<img src="/images/ZGI/logo_yiguo.png" height="40" />
 						</div>
-						<div class="col-lg-3 cooperation_logo text-center">
+						<div class="col-lg-3 col-md-3  col-sm-6 cooperation_logo text-center">
 							<img src="/images/ZGI/logo_pepsi.png" height="40" />
 						</div>
-						<div class="col-lg-3 cooperation_logo text-center">
+						<div class="col-lg-3 col-md-3  col-sm-6 cooperation_logo text-center">
 							<img src="/images/ZGI/logo_coca.png" height="40" />
 						</div>
-						<div class="col-lg-3 cooperation_logo text-center">
+						<div class="col-lg-3 col-md-3  col-sm-6 cooperation_logo text-center">
 							<img src="/images/ZGI/logo_hagen.png" height="40" />
 						</div>
-						<div class="col-lg-3 cooperation_logo text-center">
+						<div class="col-lg-3 col-md-3  col-sm-6 cooperation_logo text-center">
 							<img src="/images/ZGI/logo_yili.png" height="40" />
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="part container">
+        <div class="part">
+            <!--<header class="text-center h2">公司简介-->
+            <!--<div class="line"></div>-->
+            <!--</header>-->
+            <div class="companyIntro">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 text-center detail_card vertical_line">
+                            <p class="detail_blue"><span class="h2" id="span_year">1998</span><span class="h2">年</span></p>
+                            <p class="detail_white">成立</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 text-center detail_card vertical_line">
+                            <p class="detail_blue"><span class="h2" id="span_sale">3000</span><span class="h2">万</span></p>
+                            <p class="detail_white">年销售额</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 text-center detail_card vertical_line">
+                            <p class="detail_blue"><span class="h2" id="span_produce">100</span><span class="h2">吨</span></p>
+                            <p class="detail_white">日产量</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 text-center detail_card">
+                            <p class="detail_blue"><span class="h2">食品级</span></p>
+                            <p class="detail_white">生产许可证</p>
+                        </div>
+                        <div class="col-lg-12 col-md-12 text-center">
+                            <a class="btn_qualification">公司资质</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="part container" id="div_consult">
 			<header class="text-center h2">了解更多
 				<div class="line"></div>
 			</header>
 			<div class="row info">
-				<div class="col-lg-4 col-lg-offset-2">
+				<div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2">
 					<div class="info_card clearfix ">
 						<img src="/images/ZGI/icon_phone.png" width="60" class="pull-left" />
 						<div class="pull-left">
@@ -100,7 +130,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 col-lg-offset-2">
+				<div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2">
 					<div class="info_card clearfix ">
 						<img src="/images/ZGI/icon_mail.png" width="60" class="pull-left" />
 						<div class="pull-left">
@@ -109,7 +139,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 col-lg-offset-2">
+				<div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2">
 					<div class="info_card clearfix ">
 						<img src="/images/ZGI/icon_fax.png" width="60" class="pull-left" />
 						<div class="pull-left">
@@ -118,7 +148,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 col-lg-offset-2">
+				<div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2">
 					<div class="info_card clearfix ">
 						<img src="/images/ZGI/icon_map.png" width="60" class="pull-left" />
 						<div class="pull-left">
