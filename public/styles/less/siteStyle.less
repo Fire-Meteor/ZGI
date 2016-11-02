@@ -19,9 +19,41 @@
 	background-color: @black_02;
 	border-radius: 4px;
   }
+  
+  .main_nav_ul a{
+	display: inline-block;
+	padding:16px 35px;
+  }
+	.main_nav_ul .dropdown-menu{
+	  background: @black_02;
+	  border-radius: 4px;
+	  border:0;
+	  box-shadow: none;
+	  min-width: 120px;
+	  top: 70px;
+	  left: 0px;
+	  li{
+		overflow: hidden;
+		.sub_nav_item{
+		  line-height: 1.5rem;
+		}
+	  }
+	}
+
+  
   .nav_phone li>a:hover{
 	text-decoration: none;
 	background-color: transparent;
+  }
+}
+
+.white_dropdown{
+  background: @white_09 !important;
+  a{
+	color: @black_32 !important;
+  }
+  a:hover{
+	color: @blue_txt !important;
   }
 }
 
@@ -33,7 +65,14 @@
 	span{
 	  color:@black_32;
 	}
-}
+  }
+  .navbar-nav li a:hover{
+	color:@blue_txt;
+	background-color: transparent;
+	span{
+	  color:@blue_txt;
+	}
+  }
 }
 
 @keyframes fade {
@@ -157,6 +196,7 @@
 }
 
 footer{
+  width: 100%;
   background: @black_32;
   .footer_nav p{
 	color: @white_09;

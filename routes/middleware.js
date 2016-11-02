@@ -22,9 +22,9 @@ exports.initLocals = function (req, res, next) {
 	res.locals.user = req.user;
 
 	res.locals.navLinks = [
-		{label: '首页', key: 'home', href: '/',children: []},
-		{label: '产品应用', key: 'blog', href: '/product',children: []},
-		{label: '科普文档', key: 'document', href: '/document',children: []},
+		// {label: '首页', key: 'home', href: '/',children: []},
+		// {label: '产品应用', key: 'blog', href: '/product',children: []},
+		// {label: '科普文档', key: 'document', href: '/document',children: []},
 		// { label: '关于我们', key: 'contact', href: '/contact' },
 		// { label: '在线购买', key: 'buy', href: '/' },
 	];
@@ -41,7 +41,7 @@ exports.initLocals = function (req, res, next) {
 				res.locals.navLinks.push({
 					label: thisNav.name,
 					key: thisNav.keywords,
-					href: thisNav.fullPath,
+					href: thisNav.url,
 					children: []
 				});
 			}
@@ -53,7 +53,7 @@ exports.initLocals = function (req, res, next) {
 						res.locals.navLinks[i].children.push({
 							label: tmpNav[n].name,
 							key: tmpNav[n].keywords,
-							href: tmpNav[n].fullPath
+							href: tmpNav[n].url
 						});
 					}
 				}
