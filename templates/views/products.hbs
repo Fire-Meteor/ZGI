@@ -1,0 +1,33 @@
+<div class="container">
+	<h1>Document</h1>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-8 col-md-9">
+			<h4 class="text-weight-normal">Showing {{ data.products.results.length}} product.</h4>
+			<div class="blog">
+				{{# each data.products.results}}
+				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="post">
+					<h2><a href="{{productUrl slug}}">{{{title}}}</a></h2>
+					<p class="lead text-muted">{{{productCategoryList categories prefix="producted in "}}}
+							{{#if author.name.first}}by {{author.name.first}}{{/if}}
+					</p>
+					{{#if image}}<img src="{{{cloudinaryUrl image width=160 height=160 crop='fit' }}}" class="img pull-right">{{/if}}
+					<p>{{{content.brief}}}</p>
+					{{#if content.extended}}<p class="read-more"><a href="{{productUrl slug}}">Read more...</a></p>{{/if}}
+				</div>
+				{{/each}}
+			</div>
+		</div>
+		<div class="col-sm-4 col-md-3">
+			<h2>Categories</h2>
+			<div style="margin-top: 70px;" class="list-group">
+				<a href="/product" class="active list-group-item">All Categories</a>
+				{{# each data.categories }}
+				<a href="{{productCategoryUrl key}}" class="false list-group-item">{{name}}</a>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+	{{>productPagination}}
+</div>

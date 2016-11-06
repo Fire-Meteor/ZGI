@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+			<article>
+				<p><a href="/product">&larr; back to the blog</a></p>
+				<hr>
+				<header>
+					<h1>{{data.product.title}}</h1>
+					<h5>
+						{{{productCategoryList data.product.categories prefix="Documented in "}}}
+						{{#if author.name.first}}by {{author.name.first}}{{/if}}
+					</h5>
+				</header>
+				<div class="post">
+					{{#if data.product.image}}<img src="{{{cloudinaryUrl data.product.image width=750 height=450 crop='fit' }}}" class="img-responsive">{{/if}}
+					{{{data.product.content.extended}}}
+				</div>
+			</article>
+		</div>
+	</div>
+</div>

@@ -18,7 +18,7 @@ exports = module.exports = function (req, res) {
 				locals.navLinks.push({
 					label: tmpNav[n].name,
 					key: tmpNav[n].keywords,
-					href: tmpNav[n].fullPath,
+					href: tmpNav[n].url,
 				});
 
 				if(tmpNav[n].parent!=''){

@@ -53,7 +53,7 @@ exports.initLocals = function (req, res, next) {
 						res.locals.navLinks[i].children.push({
 							label: tmpNav[n].name,
 							key: tmpNav[n].keywords,
-							href: tmpNav[n].fullPath
+							href: tmpNav[n].url
 						});
 					}
 				}
