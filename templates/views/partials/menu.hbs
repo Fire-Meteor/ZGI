@@ -26,6 +26,7 @@
 					{{else}}
                         <li><a href="/keystone/signin">Sign In</a></li>
 					{{/if}}
+                    <li><a class="fa fa-bars"></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right nav_phone">
 					<li>
@@ -36,7 +37,7 @@
 					</li>
                 </ul>
                
-                <ul class="nav navbar-nav navbar-right main_nav_ul">
+                <ul class="nav navbar-nav navbar-right main_nav_ul-lg">
 					{{# each navLinks}}
                         <li {{#ifeq ../section key}} class="active"{{else}}{{/ifeq}}>
 
@@ -49,6 +50,26 @@
 									</li>
 								{{/each}}
 								</ul>
+							{{else}}
+                                <a href="{{ href }}">{{ label }}</a>
+							{{/if}}
+                        </li>
+					{{/each}}
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right main_nav_ul">
+					{{# each navLinks}}
+                        <li {{#ifeq ../section key}} class="active"{{else}}{{/ifeq}}>
+
+							{{#if children}}
+                                <a class="main_nav_title">{{label}}</a>
+                                <ul class="dropdown-menu" role="menu">
+									{{#each children}}
+                                        <li {{#ifeq ../section key}} class="active"{{else}}{{/ifeq}}>
+                                            <a href="{{ href }}" class="sub_nav_item">{{ label }}</a>
+                                        </li>
+									{{/each}}
+                                </ul>
 							{{else}}
                                 <a href="{{ href }}">{{ label }}</a>
 							{{/if}}
