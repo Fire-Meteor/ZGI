@@ -7,19 +7,19 @@ exports = module.exports = function (req, res) {
 	var locals = res.locals;
 
 	// Init locals
-	locals.section = 'document';
+	locals.section = 'product';
 	locals.filters = {
 		category: req.params.category,
 	};
 	locals.data = {
-		documents: [],
+		products: [],
 		categories: [],
 	};
 
 	// Load all categories
 	view.on('init', function (next) {
 
-		keystone.list('DocumentCategory').model.find().sort('name').exec(function (err, results) {
+		keystone.list('ProductCategory').model.find().sort('name').exec(function (err, results) {
 
 			if (err || !results.length) {
 				return next(err);
@@ -30,8 +30,8 @@ exports = module.exports = function (req, res) {
 			// Load the counts for each category
 			async.each(locals.data.categories, function (category, next) {
 
-				keystone.list('Document').model.count().where('categories').in([category.id]).exec(function (err, count) {
-					category.documentCount = count;
+				keystone.list('Product').model.count().where('categories').in([category.id]).exec(function (err, count) {
+					category.productCount = count;
 					next(err);
 				});
 
@@ -44,7 +44,7 @@ exports = module.exports = function (req, res) {
 	// Load the current category filter
 	view.on('init', function (next) {
 		if (req.params.category) {
-			keystone.list('DocumentCategory').model.findOne({ key: locals.filters.category }).exec(function (err, result) {
+			keystone.list('ProductCategory').model.findOne({ key: locals.filters.category }).exec(function (err, result) {
 				locals.data.category = result;
 				next(err);
 			});
@@ -53,10 +53,10 @@ exports = module.exports = function (req, res) {
 		}
 	});
 
-	// Load the documents
+	// Load the products
 	view.on('init', function (next) {
 
-		var q = keystone.list('Document').paginate({
+		var q = keystone.list('Product').paginate({
 			page: req.query.page || 1,
 			perPage: 10,
 			maxPages: 10,
@@ -72,13 +72,13 @@ exports = module.exports = function (req, res) {
 		}
 
 		q.exec(function (err, results) {
-			locals.data.documents = results;
+			locals.data.products = results;
 			next(err);
 		});
 	});
 
 	// Render the view
-	view.render('documents',{
-		layouts:'documentLayout'
+	view.render('products',{
+		layout:'productLayout'
 	});
 };

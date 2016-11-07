@@ -6,44 +6,44 @@ exports = module.exports = function (req, res) {
 	var locals = res.locals;
 
 	// Set locals
-	locals.section = 'document';
+	locals.section = 'product';
 	locals.filters = {
-		document: req.params.document,
+		product: req.params.product,
 	};
 	locals.data = {
-		documents: [],
+		products: [],
 	};
 
-	// Load the current document
+	// Load the current product
 	view.on('init', function (next) {
 
-		var q = keystone.list('Document').model.findOne({
+		var q = keystone.list('Product').model.findOne({
 			state: 'published',
-			slug: locals.filters.document,
+			slug: locals.filters.product,
 		}).populate('author categories');
 
 		q.exec(function (err, result) {
-			locals.data.document = result;
+			locals.data.product = result;
 			next(err);
 		});
 
 	});
 	
 	
-	// Load other documents
+	// Load other products
 	view.on('init', function (next) {
 
-		var q = keystone.list('Document').model.find().where('state', 'published').sort('-publishedDate').populate('author').limit('4');
+		var q = keystone.list('Product').model.find().where('state', 'published').sort('-publishedDate').populate('author').limit('4');
 
 		q.exec(function (err, results) {
-			locals.data.documents = results;
+			locals.data.products = results;
 			next(err);
 		});
 
 	});
 
 	// Render the view
-	view.render('document',{
-		layouts:'documentLayout'
+	view.render('product',{
+		layout:'productLayout'
 	});
 };

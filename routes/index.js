@@ -57,11 +57,11 @@ exports = module.exports = function (app) {
 	app.get('/gallery', routes.views.gallery);
 	app.all('/contact', routes.views.contact);
 
-	app.get('/product/:category?', routes.views.blog);
-	app.get('/product/item/:post', routes.views.post);
+	app.get('/products/:category?', routes.views.products);
+	app.get('/products/item/:product', routes.views.product);
 	
-	app.get('/document/:category?', routes.views.documents);
-	app.get('/document/item/:post', routes.views.document);
+	app.get('/documents/:category?', routes.views.documents);
+	app.get('/documents/item/:document', routes.views.document);
 	
 	app.get('/buy', routes.views.post);
 
@@ -69,7 +69,7 @@ exports = module.exports = function (app) {
 
 	app.get('/keystone/navigations', routes.views.admin.navigation_map);
 	
-	app.get('/admin/navigations_map', routes.views.admin.navigation_map);
+	//app.get('/admin/navigations_map', routes.views.admin.navigation_map);
 	
 
 	
