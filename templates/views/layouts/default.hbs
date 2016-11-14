@@ -14,6 +14,8 @@
 		<link href="/styles/site.min.css" rel="stylesheet">
         <link href="/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 		<link href="/styles/less/siteStyle.css" rel="stylesheet">
+        <link href="/styles/less/document.css" rel="stylesheet">
+        <link href="/styles/less/contact.css" rel="stylesheet">
         <!--<link href="/js/fullpageJS/jquery.fullPage.css" rel="stylesheet">-->
 		<script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js" ></script>
 		<script type="text/javascript" src="/bower_components/countUpJS/countUp.min.js" ></script>
@@ -38,12 +40,6 @@
                 else {
                     $("#div_footer").css({ "position": "static" });
                 }
-				
-				if(window.location.pathname!="/"){
-                    $("#div_header").addClass("fixed_header");
-                    $(".navbar-brand img").attr("src","/images/ZGI/logo_companyblue.png");
-                    $(".dropdown-menu").addClass("white_dropdown");
-				}
             });
 
             var options = {
@@ -68,7 +64,6 @@
 						$(".dropdown-menu").addClass("white_dropdown");
 						if($(window).scrollTop()>=1000){
 							if(flag==1){
-								
 								var scrollYear =new CountUp("span_year",0,1998,0,2.5,options);
 								var scrollSale=new CountUp("span_sale",0,3000,0,2.5,options);
 								var scrollProduce=new CountUp("span_produce",0,100,0,2.5,options);

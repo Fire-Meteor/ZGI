@@ -1,33 +1,35 @@
 <div class="container">
-	<h1>Document</h1>
+	<p class="h2 documents_title">科普文档</p>
 </div>
 <div class="container">
 	<div class="row">
 		<div class="col-sm-8 col-md-9">
-			<h4 class="text-weight-normal">Showing {{ data.documents.results.length}} document.</h4>
-			<div class="blog">
+			<!--<h4 class="text-weight-normal">Showing {{ data.documents.results.length}} document.</h4>-->
+			<div class="blog document_list">
 				{{# each data.documents.results}}
 				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="post">
-					<h2><a href="{{documentUrl slug}}">{{{title}}}</a></h2>
-					<p class="lead text-muted">{{{documentCategoryList categories prefix="documented in "}}}
-							{{#if author.name.first}}by {{author.name.first}}{{/if}}
-					</p>
+					<p class="h3"><a href="{{documentUrl slug}}">{{{title}}}</a></p>
+					<!--<p class="lead text-muted">{{{documentCategoryList categories prefix="documented in "}}}-->
+							<!--{{#if author.name.first}}by {{author.name.first}}{{/if}}-->
+					<!--</p>-->
 					{{#if image}}<img src="{{{cloudinaryUrl image width=160 height=160 crop='fit' }}}" class="img pull-right">{{/if}}
-					<p>{{{content.brief}}}</p>
-					{{#if content.extended}}<p class="read-more"><a href="{{documentUrl slug}}">Read more...</a></p>{{/if}}
+					<p class="content_brief">{{{content.brief}}}</p>
+					{{#if content.extended}}<p class="read-more"><a class="min_font" href="{{documentUrl slug}}">更多</a></p>{{/if}}
 				</div>
+				<hr>
 				{{/each}}
 			</div>
 		</div>
-		<div class="col-sm-4 col-md-3">
-			<h2>Categories</h2>
-			<div style="margin-top: 70px;" class="list-group">
-				<a href="/document" class="active list-group-item">All Categories</a>
-				{{# each data.categories }}
-				<a href="{{documentCategoryUrl key}}" class="false list-group-item">{{name}}</a>
-				{{/each}}
-			</div>
-		</div>
+		<!--<div class="col-sm-4 col-md-3">-->
+			<!--<h2>Categories</h2>-->
+			<!--<div style="margin-top: 70px;" class="list-group">-->
+				<!--<a href="/document" class="active list-group-item">All Categories</a>-->
+				<!--{{# each data.categories }}-->
+				<!--<a href="{{documentCategoryUrl key}}" class="false list-group-item">{{name}}</a>-->
+				<!--{{/each}}-->
+			<!--</div>-->
+		<!--</div>-->
+		
 	</div>
 	{{>documentPagination}}
 </div>

@@ -1,4 +1,4 @@
-@import "common.less";
+@import "color.less";
 @import "common.less";
 
 .site_header{
@@ -15,21 +15,50 @@
   .navbar-nav li{
 	opacity: 0.9;
   }
-  
-  .main_nav_ul{
-	display: none;
+  .fa-bars{
+	position: relative;
   }
-  .navbar-nav li>a:hover,.main_nav_ul-lg li>a:focus{
+  	
+  .main_nav_ul_sm{
+	display: none;
+	background:@white_09;
+	padding-top: 30px;
+	height: 100%;
+	min-width: 200px;
+	position: fixed;
+	top:70px;
+	right:0;
+	z-index:999 ;
+	> li{
+	  position: relative;
+	  a{
+		line-height: 4.2rem;
+	  }
+	}
+	.dropdown-menu{
+	  position: absolute;
+	  top:40px;
+	  left:-10px;
+	  z-index: 1000;
+	  background:@white;
+	  li{
+		a{
+		  line-height: 3rem;
+		}
+	  }
+	}
+  }
+  .navbar-nav li>a:hover,.main_nav_ul_lg li>a:focus{
 	text-decoration: none;
 	background-color: @black_02;
 	border-radius: 4px;
   }
   
-  .main_nav_ul-lg a{
+  .main_nav_ul_lg a{
 	display: inline-block;
 	padding:16px 35px;
   }
-	.main_nav_ul-lg .dropdown-menu{
+	.main_nav_ul_lg .dropdown-menu{
 	  background: @black_02;
 	  border-radius: 4px;
 	  border:0;
@@ -46,7 +75,7 @@
 	}
   
   @media screen and (max-width: 1170px){
-	.main_nav_ul-lg{
+	.main_nav_ul_lg{
 	  display: none;
 	}
   }
@@ -102,7 +131,7 @@
   background-size: cover;
   height: 80%;
   .banner_title{
-	margin: 20% 0;
+	margin-top: 200px;
 	.h1{
 	  color: @white;
 	  padding-bottom: 40px;

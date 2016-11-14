@@ -1,11 +1,24 @@
 <script>
 	$(function(){
+        if(window.location.pathname!="/"){
+            $("#div_header").addClass("fixed_header");
+            $(".navbar-brand img").attr("src","/images/ZGI/logo_companyblue.png");
+            $(".dropdown-menu").addClass("white_dropdown");
+        }
+		
+		
 		$(".main_nav_title").parent().hover(function(){
 			$(this).children(".dropdown-menu").fadeIn(400);
 		},function(){
             $(this).children(".dropdown-menu").fadeOut(400);
 		});
+		
+		$("#a_menu").click(function(){
+			$(".main_nav_ul_sm").show();
+			
+		})
 	})
+
 </script>
 <div id="div_header" class="site_header">
     <div class="container-fluid">
@@ -26,7 +39,7 @@
 					{{else}}
                         <li><a href="/keystone/signin">Sign In</a></li>
 					{{/if}}
-                    <li><a class="fa fa-bars"></a></li>
+                    <li><a class="fa fa-bars" id="a_menu"></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right nav_phone">
 					<li>
@@ -37,7 +50,7 @@
 					</li>
                 </ul>
                
-                <ul class="nav navbar-nav navbar-right main_nav_ul-lg">
+                <ul class="nav navbar-nav navbar-right main_nav_ul_lg">
 					{{# each navLinks}}
                         <li {{#ifeq ../section key}} class="active"{{else}}{{/ifeq}}>
 
@@ -57,7 +70,7 @@
 					{{/each}}
                 </ul>
 
-                <ul class="nav navbar-nav navbar-right main_nav_ul">
+                <ul class="main_nav_ul_sm">
 					{{# each navLinks}}
                         <li {{#ifeq ../section key}} class="active"{{else}}{{/ifeq}}>
 

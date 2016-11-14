@@ -22,7 +22,7 @@ exports.initLocals = function (req, res, next) {
 	res.locals.user = req.user;
 
 	res.locals.navLinks = [
-		// {label: '首页', key: 'home', href: '/',children: []},
+		 // {label: '首页', key: 'home', href: '/',children: []},
 		// {label: '产品应用', key: 'blog', href: '/product',children: []},
 		// {label: '科普文档', key: 'document', href: '/document',children: []},
 		// { label: '关于我们', key: 'contact', href: '/contact' },
@@ -30,7 +30,7 @@ exports.initLocals = function (req, res, next) {
 	];
 
 
-	var q = keystone.list('Navigation').model.find().populate('parent');
+	var q = keystone.list('Navigation').model.find().populate('parent').sort([['sortBy', 'ascending']]);
 	q.exec(function (err, result) {
 		var tmpNav = result;
 
