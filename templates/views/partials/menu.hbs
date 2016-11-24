@@ -13,8 +13,16 @@
             $(this).children(".dropdown-menu").fadeOut(400);
 		});
 		
+		var flag = 0;
 		$("#a_menu").click(function(){
-			$(".main_nav_ul_sm").show();
+			if(flag == 0){
+				$(".main_nav_ul_sm").show();
+				flag = 1;
+            }
+			else{
+                $(".main_nav_ul_sm").hide();
+                flag = 0;
+			}
 			
 		})
 	})
