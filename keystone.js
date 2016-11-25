@@ -36,6 +36,8 @@ keystone.init({
 	'user model': 'User',
 	'wysiwyg images': true,
 	'wysiwyg cloudinary images': true,
+	mongo: 'mongodb://zgidryiceuser:a0WJ2430r3OEBA3jF2vc3Q92eCg3YZvV2D91af4ha0E1W0l4c18dcg465o8e1I124Y49faR1EX40w5Xw20qfZc850S4AfOc446XZ9U214rDfyr6Ju8b3IkO3IrDJ1y1V@23.99.104.112:27017/dryice',
+
 
 	port:process.env.PORT || 3456
 });
