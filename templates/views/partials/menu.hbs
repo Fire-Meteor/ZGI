@@ -1,3 +1,33 @@
+<script>
+	$(function(){
+        if(window.location.pathname!="/"){
+            $("#div_header").addClass("fixed_header");
+            $(".navbar-brand img").attr("src","/images/ZGI/logo_companyblue.png");
+            $(".dropdown-menu").addClass("white_dropdown");
+        }
+		
+		
+		$(".main_nav_title").parent().hover(function(){
+			$(this).children(".dropdown-menu").fadeIn(400);
+		},function(){
+            $(this).children(".dropdown-menu").fadeOut(400);
+		});
+		
+		var flag = 0;
+		$("#a_menu").click(function(){
+			if(flag == 0){
+				$(".main_nav_ul_sm").show();
+				flag = 1;
+            }
+			else{
+                $(".main_nav_ul_sm").hide();
+                flag = 0;
+			}
+			
+		})
+	})
+
+</script>
 <div id="div_header" class="site_header">
     <div class="container-fluid">
         <nav role="navigation" class="navbar">
@@ -11,26 +41,53 @@
                 </a>
             </div>
             <div class="collapse navbar-collapse main_nav">
-                <!--<ul class="nav navbar-nav navbar-right nav_phone">-->
-                <!--<li>-->
-                <!--<a>-->
-                <!--<span class="fa fa-phone h3"></span>&nbsp;&nbsp;&nbsp;-->
-                <!--<span class="h5">021-68466455</span>-->
-                <!--</a>-->
-                <!--</li>-->
-                <!--</ul>-->
-
-                <ul class="nav navbar-nav navbar-right main_nav_ul">
+                <ul class="nav navbar-nav navbar-right">
+					{{#if user}}
+                        <li><a href="/keystone/signout">Sign Out</a></li>
+					{{else}}
+                        <li><a href="/keystone/signin">Sign In</a></li>
+					{{/if}}
+                    <li><a class="fa fa-bars" id="a_menu"></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right nav_phone">
+					<li>
+						<a>
+							<span class="fa fa-phone h3"></span>&nbsp;&nbsp;&nbsp;
+							<span class="h5">021-68466455</span>
+						</a>
+					</li>
+                </ul>
+               
+                <ul class="nav navbar-nav navbar-right main_nav_ul_lg">
 					{{# each navLinks}}
                         <li {{#ifeq ../section key}} class="active"{{else}}{{/ifeq}}>
-							
+
 							{{#if children}}
-                                <ul class="">
-									<li>{{label}}</li>
-									
+								<a class="main_nav_title">{{label}}</a>
+								<ul class="dropdown-menu" role="menu">
+								{{#each children}}
+									<li {{#ifeq ../section key}} class="active"{{else}}{{/ifeq}}>
+										<a href="{{ href }}" class="sub_nav_item">{{ label }}</a>
+									</li>
+								{{/each}}
+								</ul>
+							{{else}}
+                                <a href="{{ href }}">{{ label }}</a>
+							{{/if}}
+                        </li>
+					{{/each}}
+                </ul>
+
+                <ul class="main_nav_ul_sm">
+					{{# each navLinks}}
+                        <li {{#ifeq ../section key}} class="active"{{else}}{{/ifeq}}>
+
+							{{#if children}}
+                                <a class="main_nav_title">{{label}}</a>
+                                <ul class="dropdown-menu" role="menu">
 									{{#each children}}
                                         <li {{#ifeq ../section key}} class="active"{{else}}{{/ifeq}}>
-                                            <a href="{{ href }}">{{ label }}</a>
+                                            <a href="{{ href }}" class="sub_nav_item">{{ label }}</a>
                                         </li>
 									{{/each}}
                                 </ul>
@@ -40,13 +97,7 @@
                         </li>
 					{{/each}}
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-					{{#if user}}
-                        <li><a href="/keystone/signout">Sign Out</a></li>
-					{{else}}
-                        <li><a href="/keystone/signin">Sign In</a></li>
-					{{/if}}
-                </ul>
+                
             </div>
         </nav>
     </div>

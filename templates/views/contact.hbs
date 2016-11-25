@@ -1,44 +1,159 @@
-<div class="container">
-	<h1>Contact Us</h1>
-</div>
-<div class="container">
-	<div class="row">
-		<div class="col-sm-8 col-md-6">
-			{{#if enquirySubmitted}}
-			<h3>Thanks for getting in touch.</h3>
-			{{else}}
-			<form method="post">
-				<input type="hidden" name="action" value="contact">
-				<div class="form-group {{#if validationErrors.name}}has-error{{/if}}">
-					<label>Name</label>
-					<input type="text" name="name.full"  class="form-control" value="{{formData.[name.full]}}">
+
+<link rel="stylesheet" type="text/css" href="/bower_components/fullpage.js/jquery.fullPage.css" />
+<script type="text/javascript" src="/bower_components/fullpage.js/jquery.fullPage.min.js"></script>
+<!--<div class="container">-->
+	<!--<p class="h3">联系我们</p>-->
+<!--</div>-->
+<!--<div class="container">-->
+	<!--<div class="row">-->
+		<!--<div class="col-sm-8 col-md-6">-->
+			<!--{{#if enquirySubmitted}}-->
+			<!--<h3>Thanks for getting in touch.</h3>-->
+			<!--{{else}}-->
+			<!--<form method="post">-->
+				<!--<input type="hidden" name="action" value="contact">-->
+				<!--<div class="form-group {{#if validationErrors.name}}has-error{{/if}}">-->
+					<!--<label>Name</label>-->
+					<!--<input type="text" name="name.full"  class="form-control" value="{{formData.[name.full]}}">-->
+				<!--</div>-->
+				<!--<div class="form-group {{#if validationErrors.email}}has-error{{/if}}">-->
+					<!--<label>Email</label>-->
+					<!--<input type="email" name="email" class="form-control" value="{{formData.email}}">-->
+				<!--</div>-->
+				<!--<div class="form-group">-->
+					<!--<label>Phone</label>-->
+					<!--<input type="text" name="phone" placeholder="(optional)" class="form-control" value="{{formData.phone}}">-->
+				<!--</div>-->
+				<!--<div class="form-group {{#if validationErrors.enquiryType}}has-error{{/if}}">-->
+					<!--<label>What are you contacting us about?</label>-->
+					<!--<select name="enquiryType" class="form-control">-->
+						<!--<option value="">(select one)</option>-->
+						<!--{{#each enquiryTypes}}-->
+						<!--<option value="{{value}}">{{label}}</option>-->
+						<!--{{/each}}-->
+					<!--</select>-->
+				<!--</div>-->
+				<!--<div class="form-group {{#if validationErrors.message}}has-error{{/if}} ">-->
+					<!--<label>Message</label>-->
+					<!--<textarea name="message" placeholder="Leave us a message..." rows="4" class="form-control">{{formData.message}}</textarea>-->
+				<!--</div>-->
+				<!--<div class="form-actions">-->
+					<!--<button type="submit" class="btn btn-primary">Send</button>-->
+				<!--</div>-->
+			<!--</form>-->
+			<!--{{/if}}-->
+		<!--</div>-->
+	<!--</div>-->
+<!--</div>-->
+{{!< default}}
+
+<script>
+    $(document).ready(function(){
+        $("#div_fullpage").fullpage({
+            autoScrolling: false,
+            fitToSection:false
+        });
+    })
+</script>
+<div id="div_fullpage">
+    <div class="section " id ="div_section_company">
+        <div class="part_company_desc">
+            <div class="container">
+                <div class="company_info row">
+					<div class="col-md-2"></div>
+					<div class="col-md-8">
+                    	<p class="text-center company_title">上海振信气体有限公司</p>
+						<p class="h5 company_desc">上海振信气体有限公司成立于1998年，注册资金500万元，是一家专业从事为民用及工业企业配套的气体公司。公司由三块组成：钢瓶气由上海振信新帅气体有限公司管理；工程项目由上海振信盖斯实业有限公司管理；干冰及液态气体由上海振信气体有限公司管理。
+						<br />现有20T、30T、40T二氧化碳贮槽5只，单日可生产各种规格的干冰100余吨。年用二氧化碳两万余吨，是上海最早、规模最大、品种最齐的食用级二氧化碳生产企业
+						</p>
+					</div>
+                    <div class="col-md-2"></div>
 				</div>
-				<div class="form-group {{#if validationErrors.email}}has-error{{/if}}">
-					<label>Email</label>
-					<input type="email" name="email" class="form-control" value="{{formData.email}}">
-				</div>
-				<div class="form-group">
-					<label>Phone</label>
-					<input type="text" name="phone" placeholder="(optional)" class="form-control" value="{{formData.phone}}">
-				</div>
-				<div class="form-group {{#if validationErrors.enquiryType}}has-error{{/if}}">
-					<label>What are you contacting us about?</label>
-					<select name="enquiryType" class="form-control">
-						<option value="">(select one)</option>
-						{{#each enquiryTypes}}
-						<option value="{{value}}">{{label}}</option>
-						{{/each}}
-					</select>
-				</div>
-				<div class="form-group {{#if validationErrors.message}}has-error{{/if}} ">
-					<label>Message</label>
-					<textarea name="message" placeholder="Leave us a message..." rows="4" class="form-control">{{formData.message}}</textarea>
-				</div>
-				<div class="form-actions">
-					<button type="submit" class="btn btn-primary">Send</button>
-				</div>
-			</form>
-			{{/if}}
+            </div>
+        </div>
+        <div class="part">
+            <header class="text-center h2">公司资质
+                <div class="line"></div>
+            </header>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container part">
+            <div class="qualification row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <img src="/images/ZGI/img_qualification1.png" height="240"  />
+					<p class="text-center">上海振信气体有限公司营业执照</p>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+					<img src="/images/ZGI/img_qualification2.png" height="240"  />
+                    <p class="text-center">上海振信新帅气体有限公司营业执照</p>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <img src="/images/ZGI/img_qualification3.png" height="240"  />
+                    <p class="text-center">上海振信气体有限公司气瓶充装许可证</p>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <img src="/images/ZGI/img_qualification3.png" height="240"  />
+                    <p class="text-center">上海振信新帅气体有限公司气瓶充装许可证</p>
+                </div>
+                <div class="col-md-6 text-center">
+					<img src="/images/ZGI/img_qualification5.png" height="240"  />
+                    <p class="text-center">上海振信气体有限公司气瓶危险化学品经营许可证</p>
+                </div>
+                <div class="col-md-6 text-center">
+					<img src="/images/ZGI/img_qualification6.png" height="240"  />
+                    <p class="text-center">上海振信气体有限公司道路运输经营许可证</p>
+                </div>
+                
+            </div>
+        </div>
+		<div class="company_map">
+			<img src="/images/ZGI/img_companyMap.png" />
 		</div>
+        <div class="part container">
+            <header class="text-center h2">联系我们
+                <div class="line"></div>
+            </header>
+            <div class="row info">
+                <div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2">
+                    <div class="info_card clearfix ">
+                        <img src="/images/ZGI/icon_phone.png" width="60" class="pull-left" />
+                        <div class="pull-left">
+                            <p class="h3 info_name">电话咨询</p>
+                            <p class="h6 info_detail">021-68466455</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2">
+                    <div class="info_card clearfix ">
+                        <img src="/images/ZGI/icon_mail.png" width="60" class="pull-left" />
+                        <div class="pull-left">
+                            <p class="h3 info_name">邮件咨询</p>
+                            <p class="h6 info_detail">zhenxingaisi@hotmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2">
+                    <div class="info_card clearfix ">
+                        <img src="/images/ZGI/icon_fax.png" width="60" class="pull-left" />
+                        <div class="pull-left">
+                            <p class="h3 info_name">公司传真</p>
+                            <p class="h6 info_detail">021-68466134</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2">
+                    <div class="info_card clearfix ">
+                        <img src="/images/ZGI/icon_map.png" width="60" class="pull-left" />
+                        <div class="pull-left">
+                            <p class="h3 info_name">上海振信有限公司</p>
+                            <p class="h6 info_detail">上海市宝山区长江西路955号</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</div>
 </div>
+
+

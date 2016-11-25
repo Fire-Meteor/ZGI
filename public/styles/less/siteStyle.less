@@ -1,48 +1,186 @@
+@import "color.less";
 @import "common.less";
 
 .site_header{
-  position: absolute; 
+  position: fixed; 
   top: 0px;
   left: 0px;
   z-index: 500;
   width: 100%;
   height:70px;
-  .main_nav li>a,.main_nav li>a>span{
+  @media screen and (max-width: 768px){
+	.navbar-header {
+	  float: left;
+	}
+	.navbar-collapse{
+	  display: block !important;
+	  box-shadow: none;
+	  padding-right: 0;
+	  .navbar-right{
+		float: right;
+		margin: 0 -8px 0 0;
+		li{
+		  float: left;
+		  a{
+			padding: 15px;
+		  }
+		}
+	  }
+	  .nav_phone{
+		display: none;
+	  }
+	}
+  }
+  .navbar-nav li>a,.main_nav li>a>span{
 	color:@white;
 	line-height: 4rem;
   }
-  .main_nav_ul li{
+  .navbar-nav li{
 	opacity: 0.9;
   }
-  .main_nav_ul li>a:hover,.main_nav_ul li>a:focus{
+  .fa-bars{
+	display: none;
+	position: relative;
+  }
+  	
+  .main_nav_ul_sm{
+	display: none;
+	background:@white_09;
+	padding-top: 30px;
+	height: 100%;
+	min-width: 200px;
+	position: fixed;
+	top:70px;
+	right:0;
+	z-index:999 ;
+	> li{
+	  position: relative;
+	  a{
+		line-height: 4.2rem;
+	  }
+	}
+	.dropdown-menu{
+	  position: absolute;
+	  top:40px;
+	  left:-10px;
+	  z-index: 1000;
+	  background:@white;
+	  li{
+		a{
+		  line-height: 3rem;
+		}
+	  }
+	}
+  }
+  .navbar-nav li>a:hover,.main_nav_ul_lg li>a:focus{
 	text-decoration: none;
 	background-color: @black_02;
 	border-radius: 4px;
   }
+  
+  .main_nav_ul_lg a{
+	display: inline-block;
+	padding:16px 35px;
+  }
+	.main_nav_ul_lg .dropdown-menu{
+	  background: @black_02;
+	  border-radius: 4px;
+	  border:0;
+	  box-shadow: none;
+	  min-width: 120px;
+	  top: 70px;
+	  left: 0px;
+	  li{
+		overflow: hidden;
+		.sub_nav_item{
+		  line-height: 1.5rem;
+		  display: block;
+		}
+	  }
+	}
+  
+  @media screen and (max-width: 1170px){
+	.main_nav_ul_lg{
+	  display: none;
+	}
+	.fa-bars{
+	  display: block;
+	  :focus{
+		color: @blue_txt;
+	  }
+	}
+  }
+
+  
   .nav_phone li>a:hover{
 	text-decoration: none;
 	background-color: transparent;
   }
 }
 
+.white_dropdown{
+  background: @white_09 !important;
+  a{
+	color: @black_32 !important;
+  }
+  a:hover{
+	color: @blue_txt !important;
+  }
+}
+
+.fixed_header{
+  animation: fade 0.5s linear;
+  animation-fill-mode: forwards;
+  .navbar-nav li a{
+	color:@black_32;
+	span{
+	  color:@black_32;
+	}
+  }
+  .navbar-nav li a:hover{
+	color:@blue_txt;
+	background-color: transparent;
+	span{
+	  color:@blue_txt;
+	}
+  }
+}
+
+@keyframes fade {
+  from{
+	background:transparent;
+	box-shadow:none;
+  }
+  to{
+	background:@white_09;
+	box-shadow: 0 5px 5px @black_02;
+  }
+}
+
+
+
 .homepage_slide{
   background: url("/images/ZGI/bg_banner.png") no-repeat ;
   background-size: cover;
   height: 80%;
   .banner_title{
-	margin: 20% 0;
+	margin-top: 200px;
 	.h1{
 	  color: @white;
 	  padding-bottom: 40px;
 	  letter-spacing: 2px;
 	}
-	button{
+	a{
 	  color: @white;
 	  line-height: 4rem;
-	  background: transparent;
 	  border:solid 1px @white;
-	  padding:0 20px;
+	  border-radius: 4px;
+	  padding:5px 20px;
 	  margin-right: 20px;
+	  cursor: pointer;
+	}
+	a:hover{
+	  background: @white_05;
 	}
   }
 }
@@ -72,6 +210,39 @@
 	  }
 	}
   }
+  .companyIntro{
+	background: url("/images/ZGI/bg_company.png") no-repeat;
+	background-size: cover;
+	padding:30px 0;
+	.detail_card{
+	  padding:30px 0;
+	  .detail_blue span{
+		  color: @blue_deep;
+		  font-size: 2.8rem;
+	  }
+	  .detail_white{
+		color: @white;
+		padding-top: 10px;
+	  }
+	}
+	.btn_qualification{
+	  width: 200px;
+	  line-height: 3rem;
+	  border-radius: 4px;
+	  border:solid 1px @white_05;
+	  color: @white_05;
+	  display: inline-block;
+	  margin-top:40px;
+	}
+	.btn_qualification:hover{
+	  background: @white_05;
+	  color: @white;
+	}
+  }
+  
+ .vertical_line{
+	border-right: 1px solid @white_05;
+  }
   .cooperation{
 	background: @blue_bg;
 	margin-top:30px;
@@ -98,9 +269,10 @@
 }
 
 footer{
+  width: 100%;
   background: @black_32;
   .footer_nav p{
-	color: @white_08;
+	color: @white_09;
 	padding-bottom: 30px;
 	padding-top: 60px;
   }
