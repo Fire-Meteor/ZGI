@@ -161,14 +161,22 @@
 
 .homepage_slide{
   position: relative;
-  background: url("/images/ZGI/bg_banner.png") no-repeat ;
-  background-size: cover;
-  //background-color: rgba(0,0,0,0.3);
+  //background: url("/images/ZGI/bg_banner.png") no-repeat ;
+  //background-size: cover;
+  background-color: rgba(0,0,0,0.3);
   height: 80%;
   .banner-video{
 	position: absolute;
-	top:0;
+	top:-10px;
 	left: 0;
+	z-index: -10;
+  }
+  .white-block{
+	background: #fff;
+	height: 250px;
+	width: 100%;
+	position: absolute;
+	bottom: -250px;
 	z-index: -1;
   }
   .banner_title{
@@ -209,13 +217,23 @@
 	  margin:0 auto;
 	}
   }
-  .Scenarios{
+  .bg-grey{
+	background: #f9f9f9;
+  }
+  .shoot{
 	margin: 50px 80px;
-	.Scenarios_card{
+	.card{
 	  display: block;
 	  p{
+		line-height: 3rem;
+	  }
+	  small,.fa{
 		color: @blue_txt;
-		line-height: 6rem;
+	  }
+	}
+	.photo{
+	  img{
+		width: 90%;
 	  }
 	}
   }
@@ -253,7 +271,7 @@
 	border-right: 1px solid @white_05;
   }
   .cooperation{
-	background: @blue_bg;
+	background: #f9f9f9;
 	margin-top:30px;
 	padding:50px 0;
 	.cooperation_logo{
