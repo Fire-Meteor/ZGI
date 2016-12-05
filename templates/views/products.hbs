@@ -1,33 +1,113 @@
-<div class="container">
-	<h1>产品展示</h1>
-</div>
-<div class="container">
-	<div class="row">
-		<div class="col-sm-8 col-md-9">
-			<h4 class="text-weight-normal">Showing {{ data.products.results.length}} product.</h4>
-			<div class="blog">
-				{{# each data.products.results}}
-				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="post">
-					<h2><a href="{{productUrl slug}}">{{{title}}}</a></h2>
-					<p class="lead text-muted">{{{productCategoryList categories prefix="producted in "}}}
-							{{#if author.name.first}}by {{author.name.first}}{{/if}}
-					</p>
-					{{#if image}}<img src="{{{cloudinaryUrl image width=160 height=160 crop='fit' }}}" class="img pull-right">{{/if}}
-					<p>{{{content.brief}}}</p>
-					{{#if content.extended}}<p class="read-more"><a href="{{productUrl slug}}">Read more...</a></p>{{/if}}
+<div class="products-page">
+
+	<div class="container">
+		<!--<h1>产品展示</h1>-->
+		<ol class="breadcrumb">
+			<li><a href="/">首页</a></li>
+			<li class="active">产品展示</li>
+		</ol>
+        <ul id="product-tab" class="nav nav-tabs">
+			<li class="product-classify">产品分类:</li>
+            <li class="active">
+                <a href="#dryice" data-toggle="tab">干冰</a>
+            </li>
+            <li><a href="#dryice-machine" data-toggle="tab">干冰机</a></li>
+            <li><a href="#heat-preservation-box" data-toggle="tab">干冰保温箱</a></li>
+            <!--<li><a href="#gas-cylinder" data-toggle="tab">气瓶</a></li>-->
+            <li><a href="#others" data-toggle="tab">其他</a></li>
+        </ul>
+        <div id="product-tab-content" class="tab-content">
+            <div class="tab-pane fade in active" id="dryice">
+				<div class="row">
+                    <div class="col-md-4 text-center">
+                        <img src="/images/ZGI/products/particles.jpg" alt=""/>
+                        <p class="text-center">颗粒状干冰</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="/images/ZGI/products/columnar.jpeg" alt=""/>
+                        <p class="text-center">柱状干冰</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="/images/ZGI/products/massive.jpg" alt=""/>
+                        <p class="text-center">块状干冰</p>
+                    </div>
 				</div>
-				{{/each}}
-			</div>
-		</div>
-		<div class="col-sm-4 col-md-3">
-			<h2>类别</h2>
-			<div style="margin-top: 70px;" class="list-group">
-				<a href="/product" class="active list-group-item">All Categories</a>
-				{{# each data.categories }}
-				<a href="{{productCategoryUrl key}}" class="false list-group-item">{{name}}</a>
-				{{/each}}
-			</div>
-		</div>
+            </div>
+            <div class="tab-pane fade" id="dryice-machine">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <img src="/images/ZGI/products/YGBK-100-1.png" alt=""/>
+						<p class="text-center">YGBK-100-1颗粒干冰机</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="/images/ZGI/products/YGBK-200-1.png" alt=""/>
+                        <p class="text-center">YGBK-200-1颗粒干冰机</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/images/ZGI/products/YGBJ-100-1.png" alt=""/>
+                        <p class="text-center">YGBJ-100-1块状干冰机</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="/images/ZGI/products/YGBJ-100-2.png" alt=""/>
+                        <p class="text-center">YGBK-100-2块状干冰机</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="/images/ZGI/products/YGYW-4000.png" alt=""/>
+                        <p class="text-center">YGYW-4000烟雾干冰机</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="tab-pane fade" id="heat-preservation-box">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <img src="/images/ZGI/products/preservation-box.png" alt=""/>
+                        <p class="text-center">干冰保温箱</p>
+                    </div>
+                    <!--<div class="col-md-4 text-center">-->
+                        <!--<img src="/images/ZGI/products/YGBK-200-1.jpeg" alt=""/>-->
+                        <!--<p class="text-center">YGBK-200-1颗粒干冰机</p>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <!--<div class="tab-pane fade" id="gas-cylinder">-->
+                <!--<p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple-->
+                    <!--TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>-->
+            <!--</div>-->
+            <div class="tab-pane fade" id="others">
+                <p>添置中</p>
+            </div>
+        </div>
 	</div>
-	{{>productPagination}}
+	<!--<div class="container">-->
+		<!--<div class="row">-->
+			<!--<div class="col-sm-8 col-md-9">-->
+				<!--<h4 class="text-weight-normal">Showing {{ data.products.results.length}} product.</h4>-->
+				<!--<div class="blog">-->
+					<!--{{# each data.products.results}}-->
+					<!--<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="post">-->
+						<!--<h2><a href="{{productUrl slug}}">{{{title}}}</a></h2>-->
+						<!--<p class="lead text-muted">{{{productCategoryList categories prefix="producted in "}}}-->
+								<!--{{#if author.name.first}}by {{author.name.first}}{{/if}}-->
+						<!--</p>-->
+						<!--{{#if image}}<img src="{{{cloudinaryUrl image width=160 height=160 crop='fit' }}}" class="img pull-right">{{/if}}-->
+						<!--<p>{{{content.brief}}}</p>-->
+						<!--{{#if content.extended}}<p class="read-more"><a href="{{productUrl slug}}">Read more...</a></p>{{/if}}-->
+					<!--</div>-->
+					<!--{{/each}}-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class="col-sm-4 col-md-3">-->
+				<!--<h2>类别</h2>-->
+				<!--<div style="margin-top: 70px;" class="list-group">-->
+					<!--<a href="/product" class="active list-group-item">All Categories</a>-->
+					<!--{{# each data.categories }}-->
+					<!--<a href="{{productCategoryUrl key}}" class="false list-group-item">{{name}}</a>-->
+					<!--{{/each}}-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--{{>productPagination}}-->
+	<!--</div>-->
+	
 </div>

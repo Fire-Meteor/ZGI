@@ -1,35 +1,85 @@
-<div class="container">
-	<p class="h2 documents_title">科普文档</p>
-</div>
-<div class="container">
-	<div class="row">
-		<div class="col-sm-8 col-md-9">
-			<!--<h4 class="text-weight-normal">Showing {{ data.documents.results.length}} document.</h4>-->
-			<div class="blog document_list">
-				{{# each data.documents.results}}
-				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="post">
-					<p class="h3"><a href="{{documentUrl slug}}">{{{title}}}</a></p>
-					<!--<p class="lead text-muted">{{{documentCategoryList categories prefix="documented in "}}}-->
-							<!--{{#if author.name.first}}by {{author.name.first}}{{/if}}-->
-					<!--</p>-->
-					{{#if image}}<img src="{{{cloudinaryUrl image width=160 height=160 crop='fit' }}}" class="img pull-right">{{/if}}
-					<p class="content_brief">{{{content.brief}}}</p>
-					{{#if content.extended}}<p class="read-more"><a class="min_font" href="{{documentUrl slug}}">更多</a></p>{{/if}}
-				</div>
-				<hr>
-				{{/each}}
-			</div>
-		</div>
-		<!--<div class="col-sm-4 col-md-3">-->
-			<!--<h2>Categories</h2>-->
-			<!--<div style="margin-top: 70px;" class="list-group">-->
-				<!--<a href="/document" class="active list-group-item">All Categories</a>-->
-				<!--{{# each data.categories }}-->
-				<!--<a href="{{documentCategoryUrl key}}" class="false list-group-item">{{name}}</a>-->
-				<!--{{/each}}-->
-			<!--</div>-->
-		<!--</div>-->
-		
+<div class="documents-page">
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="/">首页</a></li>
+			<li class="active">科普文档</li>
+		</ol>
 	</div>
-	{{>documentPagination}}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 card">
+				<header class="h5">什么是干冰？</header>
+				<div class="intro-content">
+					<p>干冰是CO2的固态存在形式，CO2常态下是一种无色无味的气体，自然存在于空气中。在-78℃低温，CO2以固体形式存在。在常压下，固体CO2直接升华，没有液化过程。CO2是维持生命的一种自然物质，它是碳循环中一个关键元素。它是农作物所含碳水化合物中碳元素的唯一来源，促进植物生长；它有助于缓和大气温度,安全可靠。 CO2是一种无毒，易液化的气体，它很便宜并且易于保存，它不导电并且没有可燃性。</p>
+				</div>
+				<small class="pull-right">
+					<a>阅读更多&nbsp;<i class="fa fa-chevron-right"></i>
+					</a>
+				</small>
+			</div>
+            <div class="col-md-10 card">
+                <header class="h5">干冰能产生多少度的低温？</header>
+                <div class="intro-content">
+                <p>干冰的外表像冰，但你绝对不能像对待普通的水冰一样，直接用手摸或去拿取，不是因为它很娇贵，而是由于干冰的温度是在太低。有人问干冰能产生多少度的低温，说出来也许吓你一跳，不小心碰到了皮肤就会出现红肿，严重的溃烂，所以如果你不知道干冰的温度是多少，而盲目的操作和使用干冰，可能会伤害的，甚至有生命危险。</p>
+                </div>
+				<small class="pull-right">
+                    <a>阅读更多&nbsp;<i class="fa fa-chevron-right"></i>
+                    </a>
+                </small>
+            </div>
+            <div class="col-md-10 card">
+                <header class="h5">干冰使用注意事项？</header>
+                <div class="intro-content">
+                	<p>由于干冰的特性是温度低，易挥发，所以干冰的使用非常讲究，操作时有很多需要注意的事项。在每次接触干冰时，一定要小心，必须用专用干冰手套、或者厚棉手套，也可依托其他遮蔽物才能触碰干冰!</p>
+                	<p>因为干冰的温度低，如果实在长时间直接碰触肌肤的情况下，可能会造成细胞冷冻而类似轻微或极度严重烫伤的伤害。</p>
+                </div>
+				<small class="pull-right">
+                    <a>阅读更多&nbsp;<i class="fa fa-chevron-right"></i>
+                    </a>
+                </small>
+            </div>
+            <div class="col-md-10 card">
+                <header class="h5">干冰为什么会冒烟？</header>
+                <div class="intro-content">
+                <p>干冰能产生烟雾的原因是什么呢？因为干冰是固态的二氧化碳，温度为-78.5℃，它由固体变为气体急剧升华的时候，会使周围的空气温度迅速降低，这时对水的溶解度变小，所以就把附近空气中的水蒸气冷凝为无数的小水点，就是雾。这个原理和夏天冷饮会冒烟是一个意思，干冰能产生烟雾，很显然是温度使干冰发生升华，并不是和水蒸气混合</p>
+                </div>
+				<small class="pull-right">
+                    <a>阅读更多&nbsp;<i class="fa fa-chevron-right"></i>
+                    </a>
+                </small>
+            </div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 col-md-9">
+				<!--<h4 class="text-weight-normal">Showing {{ data.documents.results.length}} document.</h4>-->
+				<div class="blog document_list">
+					{{# each data.documents.results}}
+					<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="post">
+						<p class="h3"><a href="{{documentUrl slug}}">{{{title}}}</a></p>
+						<!--<p class="lead text-muted">{{{documentCategoryList categories prefix="documented in "}}}-->
+								<!--{{#if author.name.first}}by {{author.name.first}}{{/if}}-->
+						<!--</p>-->
+						{{#if image}}<img src="{{{cloudinaryUrl image width=160 height=160 crop='fit' }}}" class="img pull-right">{{/if}}
+						<p class="content_brief">{{{content.brief}}}</p>
+						{{#if content.extended}}<p class="read-more"><a class="min_font" href="{{documentUrl slug}}">更多</a></p>{{/if}}
+					</div>
+					<hr>
+					{{/each}}
+				</div>
+			</div>
+			<!--<div class="col-sm-4 col-md-3">-->
+				<!--<h2>Categories</h2>-->
+				<!--<div style="margin-top: 70px;" class="list-group">-->
+					<!--<a href="/document" class="active list-group-item">All Categories</a>-->
+					<!--{{# each data.categories }}-->
+					<!--<a href="{{documentCategoryUrl key}}" class="false list-group-item">{{name}}</a>-->
+					<!--{{/each}}-->
+				<!--</div>-->
+			<!--</div>-->
+			
+		</div>
+		<!--{{>documentPagination}}-->
+	</div>
 </div>
