@@ -1,7 +1,9 @@
 {{!< default}}
 <link rel="stylesheet" type="text/css" href="/bower_components/fullpage.js/jquery.fullPage.css" />
 <script type="text/javascript" src="/bower_components/fullpage.js/jquery.fullPage.min.js"></script>
-
+<script type="text/javascript" src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/bower_components/video.js/dist/video.min.js"></script>
+<script type="text/javascript" src="/bower_components/BigVideo/lib/bigvideo.js"></script>
 <script>
 	$(document).ready(function(){
 		$("#div_fullpage").fullpage({
@@ -9,15 +11,19 @@
             fitToSection:false
 		});
 	})
-	
+    $(function() {
+        var BV = new $.BigVideo();
+        BV.init();
+        BV.show('/vids//produce.mp4',{ambient:true});
+    });
 </script>
 <div id="div_fullpage">
     <div class="section " id ="div_section_home">
 		<div class="homepage_slide">
 			<div class="banner-video">
-				<video width="100%" autoplay muted>
-					<source src="/images/ZGI/products/heat-preservation.mov">
-				</video>
+				<!--<video width="100%" autoplay muted>-->
+					<!--<source src="/vids//produce.mp4">-->
+				<!--</video>-->
 			</div>
 			<div class="white-block"></div>
 			<div class="container">
