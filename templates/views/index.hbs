@@ -14,7 +14,7 @@
     $(function() {
         var BV = new $.BigVideo();
         BV.init();
-        BV.show('/vids//dryice.mp4',{ambient:true});
+        BV.show('/vids//produce.mp4',{ambient:true});
     });
 </script>
 <div id="div_fullpage">
@@ -41,7 +41,7 @@
             </header>
 		</div>
 	</div>
-	<div class="section">
+	<div class="">
 		<div class="container part">
 			<div class="shoot row">
 				<div class="col-md-6">
@@ -51,7 +51,30 @@
 					</div>
 				</div>
 				<div class="col-md-5 col-md-offset-1 photo">
-					<img src="/images/ZGI/shoot-workshop1.jpg" alt="">
+                    <div id="workshop" class="carousel slide">
+                        <!-- 轮播（Carousel）指标 -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#workshop" data-slide-to="0" class="active"></li>
+                            <li data-target="#workshop" data-slide-to="1"></li>
+                            <li data-target="#workshop" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="/images/ZGI/shoot-workshop1.jpg" alt="First slide">
+                            </div>
+                            <div class="item">
+                                <img src="/images/ZGI/shoot-workshop2.jpg" alt="Second slide">
+                            </div>
+                            <div class="item">
+                                <img src="/images/ZGI/shoot-workshop3.jpg" alt="Third slide">
+                            </div>
+                        </div>
+                        <!-- 轮播（Carousel）导航 -->
+                        <a class="carousel-control left" href="#workshop"
+                           data-slide="prev"></a>
+                        <a class="carousel-control right" href="#workshop"
+                           data-slide="next"></a>
+                    </div>
 				</div>
 			</div>
 		</div>
@@ -63,7 +86,28 @@
 				<div class="container">
 					<div class="shoot row">
 						<div class="col-md-5 photo">
-							<img src="/images/ZGI/shoot-cylinder.jpg" alt="">
+                            <div id="cylinder" class="carousel slide">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#cylinder" data-slide-to="0" class="active"></li>
+                                    <li data-target="#cylinder" data-slide-to="1"></li>
+                                    <li data-target="#cylinder" data-slide-to="2"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <img src="/images/ZGI/shoot-cylinder1.jpg" alt="First slide">
+                                    </div>
+                                    <div class="item">
+                                        <img src="/images/ZGI/shoot-cylinder2.jpg" alt="Second slide">
+                                    </div>
+                                    <div class="item">
+                                        <img src="/images/ZGI/shoot-cylinder3.jpg" alt="Third slide">
+                                    </div>
+                                </div>
+                                <a class="carousel-control left" href="#cylinder"
+                                   data-slide="prev"></a>
+                                <a class="carousel-control right" href="#cylinder"
+                                   data-slide="next"></a>
+                            </div>
 						</div>
                         <div class="col-md-6 col-md-offset-1 ">
                             <div href="" class="card">
@@ -87,8 +131,24 @@
                     </div>
                 </div>
                 <div class="col-md-5 col-md-offset-1 photo">
-                    <img src="/images/ZGI/shoot-produce1.jpg" alt="">
-					<!--<video src="/images/ZGI/produce_movie.mp4" width="335px" controls ></video>-->
+                    <div id="produce" class="carousel slide">
+                        <ol class="carousel-indicators">
+                            <li data-target="#produce" data-slide-to="0" class="active"></li>
+                            <li data-target="#produce" data-slide-to="1"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="/images/ZGI/shoot-produce1.jpg" alt="First slide">
+                            </div>
+                            <div class="item">
+                                <img src="/images/ZGI/shoot-produce2.jpg" alt="Second slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control left" href="#produce"
+                           data-slide="prev"></a>
+                        <a class="carousel-control right" href="#produce"
+                           data-slide="next"></a>
+                    </div>
                 </div>
             </div>
         </div>
