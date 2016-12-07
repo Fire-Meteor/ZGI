@@ -161,23 +161,17 @@
 
 .homepage_slide{
   position: relative;
-  //background: url("/images/ZGI/bg_banner.png") no-repeat ;
-  //background-size: cover;
   background-color: rgba(0,0,0,0.3);
-  height: 80%;
+  overflow: hidden;
   .banner-video{
 	position: absolute;
+	width: 100%;
 	top:-10px;
 	left: 0;
 	z-index: -10;
-  }
-  .white-block{
-	background: #fff;
-	height: 500px;
-	width: 100%;
-	position: absolute;
-	bottom: -500px;
-	z-index: -1;
+	video{
+	  width: 100%;
+	}
   }
   .banner_title{
 	margin-top: 200px;
@@ -388,6 +382,18 @@ footer{
 	  }
 	  a,a i{
 		color:@blue_txt;
+	  }
+	}
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .homepage_slide{
+	.banner-video{
+	  video{
+		height:100%;
+		width: auto;
 	  }
 	}
   }
